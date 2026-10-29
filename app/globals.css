@@ -521,14 +521,14 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
   .hud-label, .hud-legend, .hud-track { display: none; }
   .hud { background: rgba(7, 8, 11, .97); }
   .hud-clock { font-size: 20px; min-width: 6.2em; flex: none; }
-  .hud-splits { flex: 1; padding-left: 0; }
+  .hud-splits { flex: 1; min-width: 72px; padding-left: 0; }
   .splits { display: flex; gap: 6px; flex: 1; }
   .splits li { flex: 1; }
   .splits a { display: block; height: 4px; padding: 0; border-radius: 2px; background: currentColor; opacity: .2; overflow: hidden; text-indent: -999px; }
   .splits li[data-state="done"] a { opacity: .6; }
   .splits li[data-state="current"] a { opacity: 1; background: var(--signal); }
   .splits .n, .splits .gold { display: none; }
-  .hud-current { font-size: 14px; font-weight: 600; white-space: nowrap; }
+  .hud-current { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 42vw; }
   .chapter { padding-left: var(--gutter); }
   .chapter-body { grid-template-columns: 1fr; }
   .chapter[data-feature="true"] { margin-left: 0; padding-left: var(--gutter); }
