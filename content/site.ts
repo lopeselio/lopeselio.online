@@ -223,9 +223,13 @@ export const chapters: Chapter[] = [
     ],
     statsLayout: "carousel",
     stats: [
+      { value: 50, prefix: "$", suffix: "K", label: "1st place, games track, Solana Summer Camp" },
       { value: 30, prefix: "$", suffix: "K", label: "1st place, Aptos Hack Singapore" },
       { value: 26, prefix: "$", suffix: "K", label: "1st place, Solana Speedrun Game Jam" },
       { value: 25, prefix: "$", suffix: "K", label: "1st place, Solana Bonkathon" },
+      { value: 10, prefix: "$", suffix: "K", label: "Protocol Labs dev grants" },
+      { value: 8, prefix: "$", suffix: "K", label: "Algorand Build-a-Bull Hackathon" },
+      { value: 6, prefix: "$", suffix: "K", label: "Solana Foundation India grant, via Superteam India" },
       { value: 250, prefix: "$", suffix: "K+", label: "equity-free funding from 15+ wins and grants" },
     ],
     mediaLayout: "carousel",
