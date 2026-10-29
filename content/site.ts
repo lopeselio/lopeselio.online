@@ -236,6 +236,16 @@ export const chapters: Chapter[] = [
       "Across more than 15 hackathon wins and grants, we raised over $250K without giving up any equity. Those results mattered, but so did getting the games out of our own hands and in front of players. A pitch or a prize can get people interested; a shipped game gives them something to try.",
       "That experience set up our biggest test yet: taking Cryptara Conquest live and seeing how people would actually play it.",
     ],
+    articles: [
+      {
+        title: "Forged in the Colosseum: enter the Cryptara realm",
+        url: "https://x.com/ElioCodes/status/2055021715672183234",
+        author: "ElioCodes",
+        date: "2026-05-14T20:25:32Z",
+        cover: "/media/article-forged-in-the-colosseum.jpg",
+        blurb: "How we've built and shipped on-chain games through every major Solana hackathon since university. The first in a series.",
+      },
+    ],
     statsLayout: "carousel",
     stats: [
       { value: 50, prefix: "$", suffix: "K", label: "1st place, games track, Solana Summer Camp" },
@@ -355,6 +365,16 @@ export const chapters: Chapter[] = [
       "I also had to fix a serious problem in the game. A mainnet bug had corrupted 94% of legacy session accounts. I fixed the bug, restored the leaderboard entries it had damaged, and formally verified the program's safety rules with more than 100 theorems. Shipping the game was one part of the job; making the systems underneath it more dependable was another.",
       "We also shipped Sushi Nads that year, a cooking game on Monad where every delivery is scored on-chain. I wrote its contracts, gasless backend and Unity web3 layer. Between the game, the mobile work and the open-source contributions, I was spending as much time on the foundations as on what players could see.",
       "Eventually, I wanted to put all of those skills into a project I could shape end to end. That brought me to Terrace Social.",
+    ],
+    articles: [
+      {
+        title: "Building Cryptara Conquest: why we went all in on Solana Mobile",
+        url: "https://x.com/CryptaraConq/status/2077102823347720420",
+        author: "CryptaraConq",
+        date: "2026-07-14T18:47:58Z",
+        cover: "/media/article-all-in-on-solana-mobile.jpg",
+        blurb: "Why mobile is where on-chain games actually win, and what that meant for how we built Cryptara Conquest.",
+      },
     ],
     stats: [
       { value: 1000, suffix: "+", label: "players on Seeker" },
