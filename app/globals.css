@@ -417,6 +417,8 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
   padding: 22px 24px; display: grid; gap: 12px; align-content: start; font-size: 16px; line-height: 1.6;
 }
 .afk-card h3 { font-size: 22px; letter-spacing: -0.01em; }
+/* an odd card out spans the full row instead of leaving a gap */
+.afk-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .afk-listintro { color: var(--muted); }
 .afk-list { display: grid; gap: 8px; }
 .afk-list li { padding-left: 16px; position: relative; }
@@ -502,6 +504,9 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
   box-shadow: 0 0 0 2px #fff, 0 0 18px 4px rgba(255, 255, 255, .7), 0 0 42px 10px rgba(255, 122, 47, .5);
 }
 
+@keyframes jl-float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-6px) rotate(1deg); } }
+@media (prefers-reduced-motion: reduce) { .jl-next { animation: none !important; } }
+
 /* ---------- Small screens: the split timer becomes a top bar ---------- */
 @media (max-width: 900px) {
   :root { --hud: 0px; }
@@ -509,18 +514,21 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
   .hero { grid-template-columns: 1fr; }
   .hero-side { margin: 0 -12px; padding: 18px 14px; }
   .journey-labels { display: none; }
-  /* the next checkpoint, pinned to the bottom: the phone version of the floating labels */
+  /* the next checkpoint, floating at the bottom: the phone version of the floating labels.
+     Dragging it spins the 3D gem inside, so it doesn't scroll the page. */
   .jl-next:not([hidden]) {
-    display: inline-flex; align-items: baseline; gap: 6px;
-    position: fixed; left: 50%; bottom: max(16px, env(safe-area-inset-bottom)); transform: translateX(-50%);
-    pointer-events: auto; z-index: 30; white-space: nowrap; text-decoration: none;
-    padding: 10px 16px; border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 8px;
+    position: fixed; left: 50%; bottom: max(16px, env(safe-area-inset-bottom)); translate: -50% 0;
+    pointer-events: auto; z-index: 30; white-space: nowrap; text-decoration: none; touch-action: none;
+    padding: 6px 16px 6px 8px; border-radius: 999px;
     background: var(--signal); color: #000; font-size: 14px; font-weight: 700;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, .85), 0 8px 26px rgba(0, 0, 0, .55), 0 0 26px rgba(255, 122, 47, .45);
+    animation: jl-float 3.4s ease-in-out infinite;
   }
-  .jl-next span { font-weight: 600; opacity: .7; margin-right: 2px; }
+  .jl-next canvas { width: 30px; height: 30px; flex: none; }
+  .jl-next-text { display: inline-flex; align-items: baseline; gap: 6px; }
+  .jl-next-text span { font-weight: 600; opacity: .7; margin-right: 2px; }
   .jl-next b { font-weight: 800; }
-  .jl-next i { font-style: normal; font-weight: 600; opacity: .75; }
   .jl-next[data-gold="true"] b::before { content: "◆ "; }
   .jl-next:active { text-shadow: 0 0 6px #fff, 0 0 14px #fff; }
   .hud {

@@ -22,14 +22,18 @@ export default function Journey3D({ splits }: { splits: Split[] }) {
 
   useEffect(() => {
     let stop = () => {};
+    let stopMarker = () => {};
     let cancelled = false;
     import("three").then((THREE) => {
       if (cancelled || !canvasRef.current || !labelsRef.current || !nextRef.current) return;
-      stop = startCourse(THREE, canvasRef.current, labelsRef.current, nextRef.current, splits);
+      const marker = startMarker(THREE, nextRef.current);
+      stopMarker = marker.stop;
+      stop = startCourse(THREE, canvasRef.current, labelsRef.current, nextRef.current, splits, marker.kick);
     });
     return () => {
       cancelled = true;
       stop();
+      stopMarker();
     };
   }, [splits]);
 
@@ -45,10 +49,125 @@ export default function Journey3D({ splits }: { splits: Split[] }) {
           ))}
         </div>
       </div>
-      {/* Shown on phones only: the next checkpoint, pinned to the bottom of the screen */}
-      <a ref={nextRef} className="jl-next" href="#" hidden />
+      {/* Shown on phones only: the next checkpoint, floating at the bottom of the screen */}
+      <a ref={nextRef} className="jl-next" href="#" hidden>
+        <canvas aria-hidden="true" />
+        <span className="jl-next-text" />
+      </a>
     </>
   );
+}
+
+// Phones: a small 3D gem inside the floating "Next" marker. Drag the marker to spin the gem;
+// it also spins up on its own whenever the next checkpoint changes.
+function startMarker(THREE: typeof T, chip: HTMLAnchorElement) {
+  const canvas = chip.querySelector("canvas")!;
+  const phone = matchMedia("(max-width: 900px)");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let renderer: T.WebGLRenderer;
+  try {
+    if (!phone.matches) throw new Error("not a phone");
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  } catch {
+    canvas.hidden = true;
+    return { stop: () => {}, kick: () => {} };
+  }
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setSize(30, 30, false);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 20);
+  camera.position.z = 4.6;
+  scene.add(new THREE.HemisphereLight(0xfff4e8, 0x3a2a1c, 2.2));
+  const sun = new THREE.DirectionalLight(0xffffff, 2.4);
+  sun.position.set(2, 3, 4);
+  scene.add(sun);
+  // dark gem and white ring, so they read against the orange capsule
+  const gem = new THREE.Mesh(
+    new THREE.OctahedronGeometry(0.95),
+    new THREE.MeshStandardMaterial({ color: 0x2a2520, roughness: 0.3, metalness: 0.4, flatShading: true }),
+  );
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(1.35, 0.07, 10, 64), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+  ring.rotation.x = 1.2;
+  scene.add(gem, ring);
+
+  const spin = { x: 0, y: 0 };
+  let pop = 0;
+  let drag: { x: number; y: number; moved: boolean } | null = null;
+  let dragged = false;
+
+  const kick = () => {
+    spin.y += reduce ? 0.12 : 0.35;
+    pop = 1;
+  };
+  function onDown(e: PointerEvent) {
+    drag = { x: e.clientX, y: e.clientY, moved: false };
+    dragged = false;
+  }
+  function onMove(e: PointerEvent) {
+    if (!drag) return;
+    const dx = e.clientX - drag.x;
+    const dy = e.clientY - drag.y;
+    drag.x = e.clientX;
+    drag.y = e.clientY;
+    gem.rotation.y += dx * 0.03;
+    gem.rotation.x += dy * 0.03;
+    spin.y = dx * 0.01;
+    spin.x = dy * 0.01;
+    if (Math.abs(dx) + Math.abs(dy) > 2) drag.moved = true;
+  }
+  function onUp() {
+    dragged = !!drag?.moved;
+    drag = null;
+  }
+  function onClick(e: MouseEvent) {
+    // a drag spins the gem; only a tap follows the link
+    if (dragged) e.preventDefault();
+    else kick();
+    dragged = false;
+  }
+  chip.addEventListener("pointerdown", onDown);
+  addEventListener("pointermove", onMove, { passive: true });
+  addEventListener("pointerup", onUp);
+  addEventListener("pointercancel", onUp);
+  chip.addEventListener("click", onClick);
+
+  let raf = 0;
+  const loop = () => {
+    raf = requestAnimationFrame(loop);
+    if (chip.hidden || !phone.matches) return;
+    const t = performance.now() / 1000;
+    gem.rotation.y += spin.y + (reduce ? 0 : 0.012);
+    gem.rotation.x += spin.x;
+    if (!drag) {
+      spin.x *= 0.94;
+      spin.y *= 0.95;
+    }
+    pop *= 0.9;
+    gem.scale.setScalar(1 + pop * 0.3);
+    gem.position.y = reduce ? 0 : Math.sin(t * 2.2) * 0.12;
+    ring.rotation.z += reduce ? 0 : 0.01;
+    ring.rotation.y = reduce ? 0 : Math.sin(t * 0.9) * 0.25;
+    renderer.render(scene, camera);
+  };
+  loop();
+
+  return {
+    kick,
+    stop() {
+      cancelAnimationFrame(raf);
+      chip.removeEventListener("pointerdown", onDown);
+      removeEventListener("pointermove", onMove);
+      removeEventListener("pointerup", onUp);
+      removeEventListener("pointercancel", onUp);
+      chip.removeEventListener("click", onClick);
+      gem.geometry.dispose();
+      (gem.material as T.Material).dispose();
+      ring.geometry.dispose();
+      (ring.material as T.Material).dispose();
+      renderer.dispose();
+    },
+  };
 }
 
 // Elements that sit over the canvas and should keep their own clicks.
@@ -60,7 +179,9 @@ function startCourse(
   labelRoot: HTMLDivElement,
   nextChip: HTMLAnchorElement,
   splits: Split[],
+  kickMarker: () => void,
 ) {
+  const nextText = nextChip.querySelector<HTMLElement>(".jl-next-text")!;
   let renderer: T.WebGLRenderer;
   try {
     renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
@@ -433,7 +554,8 @@ function startCourse(
       if (s) {
         nextChip.href = `#${s.id}`;
         nextChip.dataset.gold = String(Boolean(s.gold));
-        nextChip.innerHTML = `<span>Next</span><b>${String(next + 1).padStart(2, "0")}</b> ${s.split} <i>${s.when}</i>`;
+        nextText.innerHTML = `<span>Next</span><b>${String(next + 1).padStart(2, "0")}</b> ${s.split}`;
+        kickMarker();
       }
     }
     document.documentElement.style.cursor = hovered >= 0 ? "pointer" : "";
