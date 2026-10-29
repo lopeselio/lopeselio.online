@@ -1,4 +1,4 @@
-import { chapters, closing, community, moments, profile, work } from "@/content/site";
+import { brands, chapters, closing, community, moments, profile, work } from "@/content/site";
 import ChapterSection from "@/components/ChapterSection";
 import Journey3D from "@/components/Journey3D";
 import Mentions from "@/components/Mentions";
@@ -91,7 +91,13 @@ export default function Home() {
             {work.map((item) => (
               <li key={item.name}>
                 <span className="y">{item.year}</span>
-                <span className="nm">{item.name}</span>
+                <span className="nm">
+                  {(() => {
+                    const brand = brands.find((b) => b.name === item.name);
+                    return brand ? <img src={brand.logo} alt="" width={22} height={22} /> : null;
+                  })()}
+                  {item.name}
+                </span>
                 <span className="wt">{item.what}</span>
                 <span className="lk">
                   {item.links.map((link) => (

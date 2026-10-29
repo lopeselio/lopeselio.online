@@ -422,6 +422,7 @@ export const work: Work[] = [
     links: [
       { label: "Play", href: "https://play.terrace.social" },
       { label: "Demo", href: "https://x.com/ElioCodes/status/2112883327279796585" },
+      { label: "X", href: "https://x.com/terrace_social" },
     ],
   },
   {
@@ -443,13 +444,19 @@ export const work: Work[] = [
     name: "Sushi Nads",
     what: "Cooking game on Monad with gasless play and on-chain scoring",
     year: "2026",
-    links: [{ label: "Play", href: "https://sushinads.fun" }],
+    links: [
+      { label: "Play", href: "https://sushinads.fun" },
+      { label: "X", href: "https://x.com/sushinads" },
+    ],
   },
   {
     name: "Cryptara Conquest",
     what: "Fully on-chain survival shooter on Solana and Eclipse",
     year: "2025",
-    links: [{ label: "Revenue dashboard", href: "https://cryptara-revenue-dashboard.vercel.app/" }],
+    links: [
+      { label: "Revenue dashboard", href: "https://cryptara-revenue-dashboard.vercel.app/" },
+      { label: "X", href: "https://x.com/CryptaraConq" },
+    ],
   },
   {
     name: "Alpha Streams and BlockStory",

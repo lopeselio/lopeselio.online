@@ -333,7 +333,8 @@ h1, h2, h3 { margin: 0; font-weight: 800; }
 }
 .work li:hover { background: rgba(255, 122, 47, .06); }
 .work .y { color: var(--signal); font-variant-numeric: tabular-nums; font-size: 15px; }
-.work .nm { font-weight: 700; font-size: 19px; font-variation-settings: "wdth" 110; }
+.work .nm { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 19px; font-variation-settings: "wdth" 110; }
+.work .nm img { width: 24px; height: 24px; border-radius: 6px; box-shadow: 0 0 0 1px rgba(243, 239, 232, .45); }
 
 /* A project mention: its logo and name, linking to its X account */
 .brand {
