@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: "lopeselio.online",
     locale: "en_US",
     // made from docs/og-cover.html
-    images: [{ url: "/media/og-cover.jpg", width: 1200, height: 630, alt: `${profile.name}: ${profile.tagline}` }],
+    images: [{ url: "/media/og-cover.jpg?v=2", width: 1200, height: 630, alt: `${profile.name}: ${profile.tagline}` }],
     type: "profile",
   },
   twitter: {
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     creator: "@ElioCodes",
     title: `${profile.name}: ${profile.tagline}`,
     description,
-    images: ["/media/og-cover.jpg"],
+    images: ["/media/og-cover.jpg?v=2"],
   },
 };
 
