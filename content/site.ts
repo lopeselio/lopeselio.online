@@ -323,7 +323,32 @@ export const chapters: Chapter[] = [
       { value: 1650, suffix: "+", label: "on-chain transactions" },
       { value: 7, label: "private leagues" },
     ],
+    mediaLayout: "carousel",
     media: [
+      {
+        kind: "video",
+        src: "/media/terrace-called-it.mp4",
+        poster: "/media/terrace-called-it-poster.jpg",
+        alt: "A match chat where one friend's call comes true, and Terrace turns it into a win.",
+        caption: "Called it",
+        sound: true,
+      },
+      {
+        kind: "video",
+        src: "/media/terrace-claude-v-claude.mp4",
+        poster: "/media/terrace-claude-v-claude-poster.jpg",
+        alt: "Two Claude chats betting each other on a football match through terrace-mcp.",
+        caption: "Claude v Claude: AI assistants betting each other with terrace-mcp",
+        sound: true,
+      },
+      {
+        kind: "video",
+        src: "/media/terrace-points.mp4",
+        poster: "/media/terrace-points-poster.jpg",
+        alt: "Terrace Points explained: rewards for playing, points for posting takes, and double points.",
+        caption: "Terrace Points",
+        sound: true,
+      },
       {
         kind: "video",
         src: "/media/terrace-app-tour.mp4",
