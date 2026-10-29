@@ -696,12 +696,6 @@ export const moments: Media[] = [
   { kind: "photo", src: "/media/flori-retreat.jpg", alt: "Founders talking at a retreat.", caption: "Catalonia, 2022" },
 ];
 
-/** Shown in the closing section. */
-export const community = [
-  "Member of Superteam India",
-  "Chainlink Developer Expert, and hands-on workshops at BITS Pilani Goa, IIT Goa, Goa College of Engineering and Padre Conceição College of Engineering",
-];
-
 export const closing = {
   title: "The run isn't finished",
   body: "I've spent the last few years learning how to build, ship and keep products running, first with a team and now on my own. I'm looking for my next role in software development: full-stack web and mobile apps, and blockchain-based consumer and DeFi applications. If you're hiring, investing, or building something nearby, I'd like to hear from you.",

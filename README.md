@@ -36,7 +36,7 @@ You should rarely need to touch anything outside `content/site.ts`.
 | Intro, email, social links | `profile` |
 | A chapter's text, numbers or links | that entry in `chapters` |
 | The project list | `work` (newest first) |
-| Community lines, closing message | `community`, `closing` |
+| Community line in the header, closing message | `profile.community`, `closing` |
 | The CV people download | replace `public/Elio_Jordan_Lopes_CV.pdf` (keep the name) |
 | Photos and clips | add files to `public/media/` and list them in a chapter's `media` (the first is shown largest on phones) |
 | The photo ring before Contact | `moments` |

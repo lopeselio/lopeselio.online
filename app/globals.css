@@ -432,8 +432,7 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
 /* ---------- Closing ---------- */
 .closing { background: var(--signal); color: var(--on-signal); }
 .closing .section-title { max-width: 14ch; }
-.closing-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: end; }
-.closing-body { font-size: clamp(19px, 1.8vw, 24px); line-height: 1.45; max-width: 34ch; }
+.closing-body { font-size: clamp(19px, 1.8vw, 24px); line-height: 1.45; max-width: 52ch; }
 .mail {
   display: inline-block; margin-top: 28px;
   font-size: clamp(26px, 3.6vw, 52px); font-weight: 800; letter-spacing: -0.02em;
@@ -442,8 +441,6 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
   overflow-wrap: anywhere;
 }
 .mail:hover { color: #fff; }
-.closing .factlist li::before { background: var(--on-signal); }
-.closing h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
 
 .footer {
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
@@ -543,7 +540,6 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
   .moments .afk-intro { font-size: 17px; }
   .work li { grid-template-columns: 48px 1fr; }
   .work .wt, .work .lk { grid-column: 2; justify-content: flex-start; }
-  .closing-grid { grid-template-columns: 1fr; }
 }
 @media (min-width: 901px) { .hud-current { display: none; } }
 

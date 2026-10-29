@@ -1,4 +1,4 @@
-import { afk, brands, chapters, closing, community, extraSplits, moments, profile, work } from "@/content/site";
+import { afk, brands, chapters, closing, extraSplits, moments, profile, work } from "@/content/site";
 import ChapterSection from "@/components/ChapterSection";
 import Journey3D from "@/components/Journey3D";
 import Mentions from "@/components/Mentions";
@@ -180,25 +180,13 @@ export default function Home() {
         </section>
 
         <section id="contact" className="section closing" aria-labelledby="contact-title">
-          <div className="closing-grid">
-            <div>
-              <h2 id="contact-title" className="section-title">
-                {closing.title}
-              </h2>
-              <p className="closing-body">{closing.body}</p>
-              <a className="mail" href={`mailto:${profile.email}`}>
-                {profile.email}
-              </a>
-            </div>
-            <div>
-              <h3>Around the work</h3>
-              <ul className="factlist">
-                {community.map((line) => (
-                  <li key={line}>{line}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <h2 id="contact-title" className="section-title">
+            {closing.title}
+          </h2>
+          <p className="closing-body">{closing.body}</p>
+          <a className="mail" href={`mailto:${profile.email}`}>
+            {profile.email}
+          </a>
         </section>
         </Run>
       </main>
