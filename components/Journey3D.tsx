@@ -18,13 +18,14 @@ const SIGNAL = 0xff7a2f;
 export default function Journey3D({ splits }: { splits: Split[] }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const labelsRef = useRef<HTMLDivElement>(null);
+  const nextRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     let stop = () => {};
     let cancelled = false;
     import("three").then((THREE) => {
-      if (cancelled || !canvasRef.current || !labelsRef.current) return;
-      stop = startCourse(THREE, canvasRef.current, labelsRef.current, splits);
+      if (cancelled || !canvasRef.current || !labelsRef.current || !nextRef.current) return;
+      stop = startCourse(THREE, canvasRef.current, labelsRef.current, nextRef.current, splits);
     });
     return () => {
       cancelled = true;
@@ -33,23 +34,33 @@ export default function Journey3D({ splits }: { splits: Split[] }) {
   }, [splits]);
 
   return (
-    <div className="journey" aria-hidden="true">
-      <canvas ref={canvasRef} />
-      <div ref={labelsRef} className="journey-labels">
-        {splits.map((s, i) => (
-          <span key={s.id} className="jl" data-gold={Boolean(s.gold)}>
-            <b>{String(i + 1).padStart(2, "0")}</b> {s.split} <i>{s.when}</i>
-          </span>
-        ))}
+    <>
+      <div className="journey" aria-hidden="true">
+        <canvas ref={canvasRef} />
+        <div ref={labelsRef} className="journey-labels">
+          {splits.map((s, i) => (
+            <span key={s.id} className="jl" data-gold={Boolean(s.gold)}>
+              <b>{String(i + 1).padStart(2, "0")}</b> {s.split} <i>{s.when}</i>
+            </span>
+          ))}
+        </div>
       </div>
-    </div>
+      {/* Shown on phones only: the next checkpoint, pinned to the bottom of the screen */}
+      <a ref={nextRef} className="jl-next" href="#" hidden />
+    </>
   );
 }
 
 // Elements that sit over the canvas and should keep their own clicks.
 const COVERED = "a, button, input, textarea, select, summary, label, video, .hud, .mcard, .chapter[data-feature='true'], #work, .moments, .closing";
 
-function startCourse(THREE: typeof T, canvas: HTMLCanvasElement, labelRoot: HTMLDivElement, splits: Split[]) {
+function startCourse(
+  THREE: typeof T,
+  canvas: HTMLCanvasElement,
+  labelRoot: HTMLDivElement,
+  nextChip: HTMLAnchorElement,
+  splits: Split[],
+) {
   let renderer: T.WebGLRenderer;
   try {
     renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
@@ -247,6 +258,14 @@ function startCourse(THREE: typeof T, canvas: HTMLCanvasElement, labelRoot: HTML
   function onClick(e: MouseEvent) {
     if (e.target instanceof Element && e.target.closest(COVERED)) return;
     if (!getSelection()?.isCollapsed) return;
+    // Touch screens have no hover: a tap on a visible checkpoint label counts instead.
+    if (hovered < 0) {
+      hovered = gates.findIndex((g) => {
+        if (Number(g.label.style.opacity) < 0.3) return false;
+        const r = g.label.getBoundingClientRect();
+        return e.clientX >= r.left - 8 && e.clientX <= r.right + 8 && e.clientY >= r.top - 8 && e.clientY <= r.bottom + 8;
+      });
+    }
     if (hovered >= 0) {
       const el = document.getElementById(gates[hovered].id);
       if (el) {
@@ -357,7 +376,8 @@ function startCourse(THREE: typeof T, canvas: HTMLCanvasElement, labelRoot: HTML
     // While a chapter is being read, dim the course so it sits behind the words.
     const active = activeChapter();
     const reading = chapterY.length > 0 && scrollY > chapterY[0];
-    dim += ((reading ? 0.5 : 1) - dim) * 0.06;
+    // phones have no side margin, so the course sits right behind the words: dim it further there
+    dim += ((reading ? (innerWidth < 900 ? 0.3 : 0.5) : 1) - dim) * 0.06;
     canvas.style.opacity = dim.toFixed(3);
     const w = innerWidth;
     const h = innerHeight;
@@ -405,12 +425,26 @@ function startCourse(THREE: typeof T, canvas: HTMLCanvasElement, labelRoot: HTML
       }
     });
     hovered = best;
+
+    // Phones: the next checkpoint as a pinned card (floating labels would sit behind the story text there).
+    const next = active + 1;
+    if (next !== shownNext) {
+      shownNext = next;
+      const s = splits[next];
+      nextChip.hidden = !s;
+      if (s) {
+        nextChip.href = `#${s.id}`;
+        nextChip.dataset.gold = String(Boolean(s.gold));
+        nextChip.innerHTML = `<span>Next</span><b>${String(next + 1).padStart(2, "0")}</b> ${s.split} <i>${s.when}</i>`;
+      }
+    }
     document.documentElement.style.cursor = hovered >= 0 ? "pointer" : "";
 
     renderer.render(scene, camera);
     frame++;
   }
   let dim = 1;
+  let shownNext = -2;
   let raf = 0;
   const loop = () => {
     raf = requestAnimationFrame(loop);
