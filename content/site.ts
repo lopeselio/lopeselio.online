@@ -477,16 +477,44 @@ export const work: Work[] = [
     ],
   },
   {
+    name: "Sigil",
+    what: "On-chain gaming platform for Aptos: leaderboards, achievements, quests and gasless play, with a TypeScript SDK",
+    year: "2025",
+    links: [
+      { label: "Console", href: "https://sigil-aptos-web-petra.vercel.app" },
+      { label: "GitHub", href: "https://github.com/lopeselio/aptos-sigil" },
+    ],
+  },
+  {
     name: "Intrant Inferis",
     what: "Story-driven dungeon RPG for mobile on Solana",
     year: "2024",
-    links: [{ label: "Demo", href: "https://x.com/IntrantInferis/status/1800423242961662334" }],
+    links: [
+      { label: "Demo", href: "https://x.com/IntrantInferis/status/1800423242961662334" },
+      { label: "Backend", href: "https://github.com/IntoTheVerse/Intrant-Inferis-NodeJS" },
+      { label: "X", href: "https://x.com/IntrantInferis" },
+    ],
   },
   {
     name: "MetaMeadow Boomtown",
     what: "Town builder on Celo that retires real carbon credits",
     year: "2024",
-    links: [{ label: "Contracts", href: "https://github.com/IntoTheVerse/IntoTheVerse-Celo-Contracts" }],
+    links: [
+      { label: "Contracts", href: "https://github.com/IntoTheVerse/IntoTheVerse-Celo-Contracts" },
+      { label: "X", href: "https://x.com/MetaBoomtown" },
+    ],
+  },
+  {
+    name: "Aptos Raiders",
+    what: "Roguelike dungeon shooter for mobile on Aptos; 1st place, games track, Aptos Hack Singapore",
+    year: "2023",
+    links: [],
+  },
+  {
+    name: "AlgoRaiders",
+    what: "The same dungeon shooter on Algorand, built at Algorand Build-a-Bull",
+    year: "2023",
+    links: [],
   },
   {
     name: "LightningCELO",
@@ -496,6 +524,12 @@ export const work: Work[] = [
       { label: "GitHub", href: "https://github.com/lopeselio/LightningCELO-EthCC" },
       { label: "Demo", href: "https://youtu.be/R0f7ebKkzVw" },
     ],
+  },
+  {
+    name: "NiftySubs",
+    what: "Pay-as-you-watch live streaming with Superfluid money streams, built at ETHGlobal HackMoney",
+    year: "2021",
+    links: [{ label: "Paper", href: "https://doi.org/10.1007/s11276-022-03009-6" }],
   },
   {
     name: "DAOInsure",
