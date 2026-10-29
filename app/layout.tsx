@@ -1,14 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo } from "next/font/google";
+import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { profile } from "@/content/site";
 import "./globals.css";
 
-// One family; its width axis (wdth) is the main typographic device on the page.
-const archivo = Archivo({
+// Headlines, numbers and labels: a heavy grotesque whose width axis (wdth) drives the widening titles.
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  axes: ["wdth"],
-  variable: "--font-archivo",
+  axes: ["wdth", "opsz"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+// Body text: a clean sans that stays easy to read at small sizes.
+const body = Manrope({
+  subsets: ["latin"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -30,7 +37,7 @@ export const viewport: Viewport = { themeColor: "#0C0E13" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={archivo.variable}>
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
         {children}
         <Analytics />

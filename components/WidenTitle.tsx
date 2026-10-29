@@ -8,14 +8,14 @@ export default function WidenTitle({ children, className }: { children: React.Re
   const ref = useRef<HTMLHeadingElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.95", "start 0.45"] });
-  const width = useTransform(scrollYProgress, [0, 1], [68, 112]);
+  const width = useTransform(scrollYProgress, [0, 1], [75, 100]);
   const settings = useTransform(width, (w) => `"wdth" ${w.toFixed(1)}`);
 
   return (
     <motion.h2
       ref={ref}
       className={className}
-      style={{ fontVariationSettings: reduce ? '"wdth" 112' : settings }}
+      style={{ fontVariationSettings: reduce ? '"wdth" 100' : settings }}
     >
       {children}
     </motion.h2>
