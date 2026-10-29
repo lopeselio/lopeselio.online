@@ -131,13 +131,13 @@ function Carousel({ items }: { items: Media[] }) {
   );
 }
 
-function MediaCard({ item, copy = false }: { item: Media; copy?: boolean }) {
-  const ref = useRef<HTMLElement>(null);
+// A muted, looping clip that plays only while on screen, with a sound button when it has a soundtrack.
+// Only one clip plays with sound at a time: turning one on mutes the rest.
+export function LoopVideo({ item, copy = false }: { item: Media; copy?: boolean }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const reduce = useReducedMotion();
   const [soundOn, setSoundOn] = useState(false);
 
-  // Only one clip plays with sound at a time: turning one on mutes the rest.
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !item.sound) return;
@@ -176,6 +176,32 @@ function MediaCard({ item, copy = false }: { item: Media; copy?: boolean }) {
     return () => observer.disconnect();
   }, [reduce]);
 
+  return (
+    <>
+      <video
+        ref={videoRef}
+        src={item.src}
+        poster={item.poster}
+        muted
+        loop
+        playsInline
+        preload="none"
+        controls={Boolean(reduce)}
+        aria-label={item.alt}
+      />
+      {item.sound ? (
+        <button type="button" className="mcard-sound" aria-pressed={soundOn} tabIndex={copy ? -1 : undefined} onClick={toggleSound}>
+          {soundOn ? "Sound off" : "Sound on"}
+        </button>
+      ) : null}
+    </>
+  );
+}
+
+function MediaCard({ item, copy = false }: { item: Media; copy?: boolean }) {
+  const ref = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+
   function tilt(e: React.PointerEvent) {
     const el = ref.current;
     if (!el || reduce || e.pointerType !== "mouse") return;
@@ -202,52 +228,21 @@ function MediaCard({ item, copy = false }: { item: Media; copy?: boolean }) {
       ref={ref}
       className="mcard"
       data-kind={item.kind}
-      data-wide={item.wide || undefined}
       aria-hidden={copy || undefined}
       onPointerMove={tilt}
       onPointerLeave={reset}
     >
       <div className="mcard-frame">
         {item.kind === "video" ? (
-          <video
-            ref={videoRef}
-            src={item.src}
-            poster={item.poster}
-            muted
-            loop
-            playsInline
-            preload="none"
-            controls={Boolean(reduce)}
-            aria-label={item.alt}
-          />
+          <LoopVideo item={item} copy={copy} />
         ) : (
           <>
             <img className="mcard-backdrop" src={item.src} alt="" aria-hidden="true" loading="lazy" draggable={false} />
             <img className="mcard-img" src={item.src} alt={copy ? "" : item.alt} loading="lazy" draggable={false} onLoad={checkShape} />
           </>
         )}
-        {item.kind === "video" && item.sound ? (
-          <button
-            type="button"
-            className="mcard-sound"
-            aria-pressed={soundOn}
-            tabIndex={copy ? -1 : undefined}
-            onClick={toggleSound}
-          >
-            {soundOn ? "Sound off" : "Sound on"}
-          </button>
-        ) : null}
       </div>
-      {item.caption || item.credit ? (
-        <figcaption>
-          {item.caption}
-          {item.credit ? (
-            <a className="textlink" href={item.credit.href} target="_blank" rel="noreferrer" tabIndex={copy ? -1 : undefined}>
-              {item.credit.label}
-            </a>
-          ) : null}
-        </figcaption>
-      ) : null}
+      {item.caption ? <figcaption>{item.caption}</figcaption> : null}
     </figure>
   );
 }
