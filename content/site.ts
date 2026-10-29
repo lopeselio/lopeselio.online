@@ -78,7 +78,7 @@ export const brands: Brand[] = [
   { name: "Intrant Inferis", x: "https://x.com/IntrantInferis", logo: "/media/logo-intrant-inferis.jpg" },
   { name: "MetaMeadow Boomtown", x: "https://x.com/MetaBoomtown", logo: "/media/logo-metameadow.jpg" },
   { name: "Sushi Nads", x: "https://x.com/sushinads", logo: "/media/logo-sushinads.jpg" },
-  { name: "Terrace", x: "https://x.com/terrace_social", logo: "/media/logo-terrace.jpg" },
+  { name: "Terrace Social", x: "https://x.com/terrace_social", logo: "/media/logo-terrace.jpg" },
 ];
 
 export const profile = {
@@ -368,7 +368,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "terrace",
-    split: "Terrace",
+    split: "Terrace Social",
     when: "Apr 2026",
     title: "Terrace, built on my own",
     story: [
@@ -386,7 +386,7 @@ export const chapters: Chapter[] = [
         kind: "video",
         src: "/media/terrace-called-it.mp4",
         poster: "/media/terrace-called-it-poster.jpg",
-        alt: "A match chat where one friend's call comes true, and Terrace turns it into a win.",
+        alt: "A match chat where one friend's call comes true, and Terrace Social turns it into a win.",
         caption: "Called it",
         sound: true,
       },
@@ -410,7 +410,7 @@ export const chapters: Chapter[] = [
         kind: "video",
         src: "/media/terrace-app-tour.mp4",
         poster: "/media/terrace-app-tour-poster.jpg",
-        alt: "A tour of the Terrace app: passkey sign-in, backing a price, following fans, 1v1 challenges, private leagues and Chainlink settlement.",
+        alt: "A tour of the Terrace Social app: passkey sign-in, backing a price, following fans, 1v1 challenges, private leagues and Chainlink settlement.",
         caption: "A quick tour of the app",
       },
       {
@@ -435,8 +435,8 @@ export type Work = { name: string; what: string; year: string; links: Link[] };
 /** The full index of projects, shown after the story. Newest first. */
 export const work: Work[] = [
   {
-    name: "Terrace",
-    what: "Football prediction app for friends, with on-chain settlement through Chainlink",
+    name: "Terrace Social",
+    what: "Social app for football fans: takes become markets that friends back or fade, settled on-chain through Chainlink",
     year: "2026",
     links: [
       { label: "Play", href: "https://play.terrace.social" },

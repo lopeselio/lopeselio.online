@@ -34,7 +34,7 @@ Each chapter answers one question for the reader.
 | 4 | Winning ◆ | 2023 | Can the team win against others? | Three 1st places ($30K Aptos Hack Singapore, $26K, $25K), Breakpoint, $250K+ equity-free |
 | 5 | Launch ◆ | Jan 2025 | Did anyone actually play? | 13K+ players, 65K+ sessions, 500K+ collectibles, 2M+ transactions, $80K in 6 weeks |
 | 6 | Mobile and open source | 2026 | Can he go deep technically? | Seeker launch, 4 merged SDK PRs (4th contributor), 94% data fix, 100+ theorems, Sushi Nads |
-| 7 | Terrace | Apr 2026 | What's he doing now? | Solo build, beta numbers, terrace-mcp |
+| 7 | Terrace Social | Apr 2026 | What's he doing now? | Solo build, beta numbers, terrace-mcp |
 
 The page then closes with the full project index and a contact section ("The run isn't finished").
 

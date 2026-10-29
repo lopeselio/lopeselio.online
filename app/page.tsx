@@ -62,7 +62,7 @@ export default function Home() {
             <dl className="facts">
               <dt>Now</dt>
               <dd>
-                <Mentions text="Building Terrace, on my own" />
+                <Mentions text="Building Terrace Social, on my own" />
               </dd>
               <dt>Before</dt>
               <dd>
