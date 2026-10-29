@@ -86,7 +86,7 @@ export const profile = {
   role: "Software engineer and game studio co-founder",
   location: "Dubai, UAE",
   intro:
-    "I build games and the software around them. Since 2018 that has meant a computer science degree, a Web3 game studio, a launch that reached 13,000 players in six weeks, open-source tooling, and now a product I'm building on my own.",
+    "I started out studying computer science, but I was always building things outside the classroom. That took me from hackathons and research papers to co-founding a game studio, shipping games on-chain, and learning what it takes to keep them running in the real world. Now I'm building Terrace Social on my own, and this is how I got here.",
   email: "lopeselio@gmail.com",
   github: "https://github.com/lopeselio",
   /** Shown with icons in the footer. */
@@ -108,10 +108,11 @@ export const chapters: Chapter[] = [
     id: "university",
     split: "University",
     when: "2018",
-    title: "Computer science, and building outside class",
+    title: "Learning to build beyond the classroom",
     story: [
-      "I studied computer science at Vellore Institute of Technology and spent a lot of that time building outside class. I led web projects on the ACM-VIT board, won a Facebook SparkAR scholarship in 2020, and wrote three research papers.",
-      "One of them came straight out of a hackathon project: a live-streaming service where viewers pay by the second, on Ethereum and IPFS. Springer published it in Wireless Networks.",
+      "I studied Computer Science and Engineering at Vellore Institute of Technology. The degree gave me the foundations, but a lot of my learning happened outside class. I led web projects on the ACM-VIT board, won a Facebook SparkAR scholarship in 2020, and wrote three research papers along the way.",
+      "One of those papers started as a hackathon project: a live-streaming service where viewers paid by the second, built on Ethereum and IPFS. It eventually made its way into Springer's Wireless Networks. I liked seeing an idea move from a working prototype into something published. It made me want to keep building beyond coursework.",
+      "By 2021, I was ready to take that work beyond university projects and start building for people who would actually use it.",
     ],
     facts: [
       "B.Tech, Computer Science and Engineering, CGPA 8.84",
@@ -128,10 +129,12 @@ export const chapters: Chapter[] = [
     id: "hackathons",
     split: "Hackathons",
     when: "2021",
-    title: "The year of freelance work and hackathons",
+    title: "Turning side projects into real work",
     story: [
-      "In 2021 I started taking paid work and entering hackathons, often at the same time. I built React Native dashboards for Vidrona in the UK and wrote smart contract tests for Footium, a football management game on Arbitrum.",
-      "Two hackathon projects from that year won prizes. NiftySubs, the pay-by-the-second streaming platform, won a Protocol Labs prize at ETHGlobal HackMoney. DAOInsure, crop insurance run by a DAO with a weather oracle I wrote, won Chainlink, Filecoin and Superfluid prizes at ETHIndia.",
+      "In 2021, I started taking paid freelance work while entering hackathons, sometimes doing both at once. I built React Native dashboards for Vidrona in the UK and wrote smart contract tests for Footium, a football management game on Arbitrum. I was moving between different kinds of problems, learning how to deliver work for others while still making time to experiment.",
+      "Two projects from that year won prizes. NiftySubs was a pay-by-the-second streaming platform that won a Protocol Labs prize at ETHGlobal HackMoney. DAOInsure used a DAO and a weather oracle I wrote to run crop insurance, and won Chainlink, Filecoin and Superfluid prizes at ETHIndia.",
+      "Hackathons gave me a way to take an idea from a rough concept to something I could demonstrate and compete with. Before long, I wanted to spend that time building games with a team, rather than treating each project as a separate experiment.",
+      "That was the next step: starting a studio with someone who had been part of the journey since university.",
     ],
     facts: ["Celo India Fellowship", "Protocol Labs developer grants"],
   },
@@ -139,10 +142,12 @@ export const chapters: Chapter[] = [
     id: "studio",
     split: "The studio",
     when: "Sep 2021",
-    title: "Starting IntoTheVerse",
+    title: "Building a studio from scratch",
     story: [
-      "In September 2021 I co-founded IntoTheVerse with Ramesh Sachan, my batchmate and friend from university: a game studio building on public blockchains. We were one of 6 teams picked out of 30 for Celo Camp Batch 4, raised from Flori Ventures and angel investors, and incorporated in Delaware in January 2022.",
-      "I was CEO and CTO, which meant product, engineering and hiring. The team grew to 16 people working remotely, and we shipped games on Solana, Eclipse, Monad, Aptos, Algorand and Celo.",
+      "In September 2021, I co-founded IntoTheVerse with Ramesh Sachan, my university batchmate and friend. We wanted to build games on public blockchains. We were one of 6 teams picked out of 30 for Celo Camp Batch 4, raised from Flori Ventures and angel investors, and incorporated the company in Delaware in January 2022.",
+      "I took on the roles of CEO and CTO. That meant more than writing code: I was responsible for product, engineering and hiring, too. We grew into a remote team of 16 people and shipped games across Solana, Eclipse, Monad, Aptos, Algorand and Celo.",
+      "Building a studio taught me to think beyond the game in front of me. We had to bring together a team, find support, make decisions and keep shipping. We also had to show people what we were building, not just talk about it.",
+      "The next few years brought more of that work into public view. We started competing on bigger stages, and our games began to win.",
     ],
     post: {
       author: "Indies On Solana",
@@ -202,12 +207,13 @@ export const chapters: Chapter[] = [
     id: "wins",
     split: "Winning",
     when: "2023",
-    title: "Shipping games in public, and winning with them",
+    title: "Making games, then proving they work",
     gold: true,
     story: [
-      "IntoTheVerse took 1st place in the games track at Aptos Hack Singapore, where I presented the studio on stage. Cryptara Conquest took 1st place in the games track at the Solana Speedrun Game Jam. Intrant Inferis, our story-driven dungeon RPG for mobile, took 1st in the games track at the Solana Bonkathon, organised by Radiants DAO.",
-      "We showed Intrant Inferis as a pre-alpha at Solana Breakpoint 2023 in Amsterdam, ran live playtests there, and launched it on mainnet in June 2024. MetaMeadow Boomtown, a town builder where caring for trees retires real carbon credits, won a Celo Foundation grant.",
-      "Across more than 15 hackathon wins and grants, the studio raised over $250K without giving up any equity.",
+      "The studio started collecting results. IntoTheVerse took 1st place in the games track at Aptos Hack Singapore, where I presented the studio on stage. Cryptara Conquest took 1st place in the games track at the Solana Speedrun Game Jam. Intrant Inferis, our story-driven dungeon RPG for mobile, took 1st in the games track at the Solana Bonkathon, organised by Radiants DAO.",
+      "We also put our games in front of people. We showed Intrant Inferis as a pre-alpha at Solana Breakpoint 2023 in Amsterdam and ran live playtests there. We launched it on mainnet in June 2024. Meanwhile, MetaMeadow Boomtown, our town builder where caring for trees retires real carbon credits, won a Celo Foundation grant.",
+      "Across more than 15 hackathon wins and grants, we raised over $250K without giving up any equity. Those results mattered, but so did getting the games out of our own hands and in front of players. A pitch or a prize can get people interested; a shipped game gives them something to try.",
+      "That experience set up our biggest test yet: taking Cryptara Conquest live and seeing how people would actually play it.",
     ],
     stats: [
       { value: 30, prefix: "$", suffix: "K", label: "1st place, Aptos Hack Singapore" },
@@ -257,7 +263,7 @@ export const chapters: Chapter[] = [
         kind: "photo",
         src: "/media/intrant-inferis-breakpoint-booth.jpg",
         alt: "The Intrant Inferis booth: a banner, game T-shirts, stickers, a tablet feedback form and a laptop showing the game's logo.",
-        caption: "Our Intrant Inferis booth at the Breakpoint 2023 community basecamp, getting feedback from players in person",
+        caption: "Our Intrant Inferis booth at Breakpoint 2023, getting feedback from players",
       },
       {
         kind: "photo",
@@ -280,8 +286,9 @@ export const chapters: Chapter[] = [
     feature: true,
     gold: true,
     story: [
-      "In January 2025 we launched Cryptara Conquest in the browser on Eclipse mainnet. It's a survival shooter that runs fully on-chain: a Unity client, Rust programs written with Anchor, and MagicBlock Ephemeral Rollups so the game can keep up in real time. I led the Unity client and the game design.",
-      "These are the numbers from its first six weeks.",
+      "In January 2025, we launched Cryptara Conquest in the browser on Eclipse mainnet. It's a survival shooter that runs fully on-chain, with a Unity client, Rust programs written with Anchor, and MagicBlock Ephemeral Rollups to keep gameplay moving in real time. I led the Unity client and game design.",
+      "Getting a game live is different from building one for a demo. Once people are playing, the numbers start telling you what happened beyond the launch itself. Cryptara Conquest reached the figures below in its first six weeks.",
+      "Those results gave us something concrete to build on. But I didn't want the game to stop at the browser. The next challenge was getting it onto phones, making the underlying tools work better, and fixing the problems that showed up along the way.",
     ],
     stats: [
       { value: 13, suffix: "K+", label: "unique players" },
@@ -302,6 +309,7 @@ export const chapters: Chapter[] = [
         kind: "photo",
         src: "/media/cryptara-cover.jpg",
         alt: "Cryptara Conquest cover art: three pixel-art fighters with guns walk toward a glowing doorway under the game's logo.",
+        caption: "Cryptara Conquest cover art",
       },
       {
         kind: "photo",
@@ -315,11 +323,12 @@ export const chapters: Chapter[] = [
     id: "mobile",
     split: "Mobile and open source",
     when: "2026",
-    title: "Taking it to phones, and fixing what was underneath",
+    title: "Taking the game further, fixing the foundations",
     story: [
-      "In June 2026 Cryptara Conquest came to Android through the Solana dApp Store for Seeker. Getting there meant fixing problems below the game, so I did it in the open: four merged contributions to MagicBlock's Solana.Unity-SDK, which brought the Solana Mobile Stack natively into Unity and put me 4th among the repository's contributors.",
-      "On the game itself, I fixed a mainnet bug that had corrupted 94% of legacy session accounts, restored the leaderboard entries it damaged, and formally verified the program's safety rules with more than 100 theorems.",
-      "The studio also shipped Sushi Nads that year, a cooking game on Monad where every delivery is scored on-chain. I wrote its contracts, its gasless backend and its Unity web3 layer.",
+      "In June 2026, Cryptara Conquest came to Android through the Solana dApp Store for Seeker. Getting it there meant dealing with problems below the game itself, so I worked on those in the open. I made four merged contributions to MagicBlock's Solana.Unity-SDK, bringing the Solana Mobile Stack natively into Unity and putting me 4th among the repository's contributors.",
+      "I also had to fix a serious problem in the game. A mainnet bug had corrupted 94% of legacy session accounts. I fixed the bug, restored the leaderboard entries it had damaged, and formally verified the program's safety rules with more than 100 theorems. Shipping the game was one part of the job; making the systems underneath it more dependable was another.",
+      "We also shipped Sushi Nads that year, a cooking game on Monad where every delivery is scored on-chain. I wrote its contracts, gasless backend and Unity web3 layer. Between the game, the mobile work and the open-source contributions, I was spending as much time on the foundations as on what players could see.",
+      "Eventually, I wanted to put all of those skills into a project I could shape end to end. That brought me to Terrace Social.",
     ],
     stats: [
       { value: 1000, suffix: "+", label: "players on Seeker" },
@@ -332,7 +341,7 @@ export const chapters: Chapter[] = [
         kind: "photo",
         src: "/media/building-cryptara-tavern.jpg",
         alt: "A hand holding a phone showing the Cryptara Conquest tavern, with the Unity editor on the monitor behind.",
-        caption: "Building the game",
+        caption: "Building Cryptara Conquest",
       },
       {
         kind: "video",
@@ -370,10 +379,12 @@ export const chapters: Chapter[] = [
     id: "terrace",
     split: "Terrace Social",
     when: "Apr 2026",
-    title: "Terrace, built on my own",
+    title: "Building Terrace Social on my own",
     story: [
-      "Terrace is a football prediction app for friends. You post a take in a match chat, and it becomes a bet your mates can back or fade, alongside 1v1 challenges, parlays and private leagues. I'm building all of it myself, from the Solidity contracts and Chainlink settlement to the app.",
-      "I also published terrace-mcp, an open-source server that lets two people's AI assistants bet each other on a match, straight from the terminal.",
+      "Terrace Social is a social app for football fans and their friends. You post a take in a match chat, and it becomes a market your mates can back or fade, alongside 1v1 challenges, parlays and private leagues. I'm building the whole thing myself, from the Solidity contracts and Chainlink settlement to the app.",
+      "I also published terrace-mcp, an open-source server that lets two people's AI assistants bet each other on a match, straight from the terminal. It's another way to explore what happens when familiar conversations become something software can act on.",
+      "After years of building games with a team, working across chains and dealing with everything from game design to backend infrastructure, I'm putting that experience into a product of my own. There's still plenty to build, and I'm enjoying having to work through every layer of it.",
+      "This is the current split, not the finish line. The projects below are the rest of the run: the things I've shipped, the tools I've worked on, and the work that led me here.",
     ],
     stats: [
       { value: 340, suffix: "+", label: "markets created in the first 2 weeks" },
@@ -564,5 +575,5 @@ export const community = [
 
 export const closing = {
   title: "The run isn't finished",
-  body: "If you're hiring, investing, or building something nearby, I'd like to hear from you.",
+  body: "I've spent the last few years learning how to build, ship and keep products running, first with a team and now on my own. If you're hiring, investing, or building something nearby, I'd like to hear from you.",
 };
