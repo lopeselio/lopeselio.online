@@ -1,4 +1,4 @@
-import { brands, chapters, closing, community, extraSplits, moments, profile, work } from "@/content/site";
+import { afk, brands, chapters, closing, community, extraSplits, moments, profile, work } from "@/content/site";
 import ChapterSection from "@/components/ChapterSection";
 import Journey3D from "@/components/Journey3D";
 import Mentions from "@/components/Mentions";
@@ -147,8 +147,34 @@ export default function Home() {
           <h2 id="moments-title" className="section-title">
             Away from the keyboard
           </h2>
-          <p className="moments-intro">Conferences, retreats and a few places in between.</p>
+          <p className="afk-subtitle">{afk.subtitle}</p>
+          <div className="afk-intro">
+            {afk.intro.map((p) => (
+              <p key={p.slice(0, 24)}>{p}</p>
+            ))}
+          </div>
           <Moments3D items={moments} />
+          <div className="afk-grid">
+            {afk.groups.map((g) => (
+              <article key={g.title} className="afk-card">
+                <h3>
+                  {g.title} <span aria-hidden="true">{g.emoji}</span>
+                </h3>
+                {g.paragraphs?.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}
+                {g.listIntro ? <p className="afk-listintro">{g.listIntro}</p> : null}
+                {g.list ? (
+                  <ul className={`afk-list afk-${g.listStyle ?? "places"}`}>
+                    {g.list.map((item) => (
+                      <li key={item.label}>
+                        {g.listStyle === "books" ? <i>{item.label}</i> : <b>{item.label}</b>}
+                        {item.text ? <span>{g.listStyle === "books" ? `, ${item.text}` : ` ${item.text}`}</span> : null}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </article>
+            ))}
+          </div>
         </section>
 
         <section id="contact" className="section closing" aria-labelledby="contact-title">

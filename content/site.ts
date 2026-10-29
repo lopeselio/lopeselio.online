@@ -560,6 +560,78 @@ export const work: Work[] = [
 ];
 
 /** Photos from outside work, shown in the 3D ring before the contact section. */
+/** A group of things shown as a card in "Away from the keyboard". */
+export type AfkGroup = {
+  title: string;
+  emoji: string;
+  paragraphs?: string[];
+  /** Line shown just before the list. */
+  listIntro?: string;
+  /** label is shown bold (a place) or in italics (a book title) depending on `listStyle`. */
+  list?: { label: string; text?: string }[];
+  listStyle?: "places" | "books";
+  after?: string[];
+};
+
+export const afk = {
+  subtitle: "Different worlds, same curiosity.",
+  intro: [
+    "I grew up in Goa, and I like exploring places beyond it. From Italian architecture and football matches to Barcelona's Gothic Quarter, cold mountain stays in Switzerland, Lisbon's food and wine, and the Dutch countryside's breweries, I enjoy getting to know a place beyond its tourist checklist. Dubai is a bit of everything.",
+    "When I'm not travelling, I'm usually building something, reading about how people build things, or playing games that have absolutely nothing to do with productivity.",
+  ],
+  groups: [
+    {
+      title: "Out exploring",
+      emoji: "🌍",
+      listStyle: "places",
+      list: [
+        { label: "Goa", text: "Home. Where the story started." },
+        { label: "Italy", text: "Naples, Milan and Florence. History, architecture and football matches." },
+        { label: "Spain", text: "Barcelona. Exploring the city's history, getting lost in the Gothic Quarter, eating well and, of course, football." },
+        { label: "Switzerland", text: "Geneva and cold mountain stays." },
+        { label: "Portugal", text: "Lisbon, good food and wine." },
+        { label: "The Netherlands", text: "Amsterdam, the countryside and brewery visits." },
+        { label: "Dubai", text: "A little bit of everything." },
+      ],
+    },
+    {
+      title: "On my bookshelf",
+      emoji: "📚",
+      paragraphs: [
+        "I tend to gravitate towards business stories, biographies, money, psychology and the occasional work of fiction. I like seeing how people think, how companies grow, and what happens behind the success stories.",
+      ],
+      listIntro: "A few books on my shelf:",
+      listStyle: "books",
+      list: [
+        { label: "Losing My Virginity", text: "Richard Branson" },
+        { label: "The Everything Store: Jeff Bezos and the Age of Amazon" },
+        { label: "Steve Jobs", text: "Walter Isaacson" },
+        { label: "The Psychology of Money" },
+        { label: "You've Reached Sam", text: "Dustin Thao" },
+        { label: "Inside Coca-Cola", text: "Neville Isdell" },
+        { label: "Measure What Matters", text: "John Doerr" },
+      ],
+    },
+    {
+      title: "Still a player",
+      emoji: "🎮",
+      paragraphs: [
+        "I build games, but I still enjoy being on the other side of the screen.",
+        "From FIFA and the Need for Speed: Most Wanted series to GTA, Zooba Mobile, Rise of Nations and Apex Legends, my gaming tastes cover football, racing, open worlds, strategy and competitive shooters.",
+        "Somewhere between building games and playing them, I never really stopped being a player.",
+      ],
+    },
+    {
+      title: "Outside the screen",
+      emoji: "⚽",
+      paragraphs: [
+        "Football, cricket, running, swimming and strength training give me a reason to step away from the keyboard. And some of the best downtime is much simpler: spending time with family and pets, watching a horror film or animation, or getting lost in a good story.",
+        "Not every hour needs to be productive. Some just need to be fun.",
+      ],
+    },
+  ] as AfkGroup[],
+};
+
 export const moments: Media[] = [
   { kind: "photo", src: "/media/travel-amalfi.jpg", alt: "Elio taking a selfie above the colourful houses of Positano and the sea.", caption: "Amalfi Coast, Italy" },
   { kind: "photo", src: "/media/travel-rome.jpg", alt: "Elio in sunglasses and a beanie in front of the Colosseum.", caption: "Rome, 2023" },
