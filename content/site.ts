@@ -138,11 +138,12 @@ export const chapters: Chapter[] = [
     title: "Turning side projects into real work",
     story: [
       "In 2021, I started taking paid freelance work while entering hackathons, sometimes doing both at once. I built React Native dashboards for Vidrona in the UK and wrote smart contract tests for Footium, a football management game on Arbitrum. I was moving between different kinds of problems, learning how to deliver work for others while still making time to experiment.",
+      "That year I was also one of 10 students in India to receive a fellowship from the Celo Foundation. It gave me hands-on exposure to building real-world apps on Celo, and I contributed to Celo's open-source code along the way.",
       "Two projects from that year won prizes. NiftySubs was a pay-by-the-second streaming platform that won a Protocol Labs prize at ETHGlobal HackMoney. DAOInsure used a DAO and a weather oracle I wrote to run crop insurance, and won Chainlink, Filecoin and Superfluid prizes at ETHIndia.",
       "Hackathons gave me a way to take an idea from a rough concept to something I could demonstrate and compete with. Before long, I wanted to spend that time building games with a team, rather than treating each project as a separate experiment.",
       "That was the next step: starting a studio with someone who had been part of the journey since university.",
     ],
-    facts: ["Celo India Fellowship", "Protocol Labs developer grants"],
+    facts: ["Celo India Fellowship: one of 10 students in India", "Open-source contributor to Celo", "Protocol Labs developer grants"],
   },
   {
     id: "studio",
