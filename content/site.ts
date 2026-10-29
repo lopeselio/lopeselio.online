@@ -115,6 +115,7 @@ export const profile = {
   socials: [
     { label: "LinkedIn", href: "https://linkedin.com/in/lopeselio" },
     { label: "Instagram", href: "https://www.instagram.com/lopeselio_" },
+    { label: "@ElioCodes", href: "https://x.com/ElioCodes" },
   ] as Link[],
   cv: "/Elio_Jordan_Lopes_CV.pdf",
   portrait: { src: "/media/elio-portrait.jpg", alt: "Elio smiling beside a studio microphone." },

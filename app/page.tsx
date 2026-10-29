@@ -7,8 +7,9 @@ import Run from "@/components/Run";
 
 const [first, middle, last] = profile.name.split(" ");
 
-// Outline icons drawn in the page's text colour, so they match the theme.
-function SocialIcon({ name }: { name: string }) {
+// Outline icons drawn in the page's text colour, so they match the theme. Picked by the link's site.
+function SocialIcon({ href }: { href: string }) {
+  const name = href.includes("instagram.com") ? "Instagram" : href.includes("linkedin.com") ? "LinkedIn" : href.includes("x.com") ? "X" : "";
   const common = { width: 18, height: 18, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, "aria-hidden": true } as const;
   if (name === "Instagram")
     return (
@@ -23,6 +24,12 @@ function SocialIcon({ name }: { name: string }) {
       <svg {...common}>
         <rect x="3" y="3" width="18" height="18" rx="3" />
         <path d="M8 10.5V16.5M8 7.6v.1M11.5 16.5v-6M11.5 13c0-1.6 1-2.6 2.4-2.6s2.1 1 2.1 2.6v3.5" strokeLinecap="round" />
+      </svg>
+    );
+  if (name === "X")
+    return (
+      <svg {...common} fill="currentColor" stroke="none">
+        <path d="M18.2 2.3h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-6.9-6.1 6.9H1.3l7.9-9L.9 2.3h7l4.8 6.3zm-1.2 17.9h1.9L7.1 4.2H5.1z" />
       </svg>
     );
   return null;
@@ -197,7 +204,7 @@ export default function Home() {
           {profile.socials.map((link) => (
             <li key={link.href}>
               <a href={link.href} target="_blank" rel="noreferrer">
-                <SocialIcon name={link.label} />
+                <SocialIcon href={link.href} />
                 {link.label}
               </a>
             </li>
