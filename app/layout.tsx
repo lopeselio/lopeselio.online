@@ -82,13 +82,19 @@ const person = {
   sameAs: [profile.github, ...profile.socials.map((s) => s.href)],
 };
 
+// The desktop layout is designed on a 14" MacBook (about 1512 x 945). Other desktop screens scale it to fit
+// the smaller of their width and height ratios, so a 13" laptop, a 15" laptop and a large monitor all show the same layout.
+const fitScript = `(function(){var r=document.documentElement;function f(){var z=Math.min(innerWidth/1512,innerHeight/945);r.style.setProperty("--z",innerWidth>900?Math.max(.8,Math.min(z,2.2)).toFixed(3):"1")}f();addEventListener("resize",f)})()`;
+
 export const viewport: Viewport = { themeColor: "#0C0E13" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable}`} suppressHydrationWarning>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
+        {/* Runs before paint: the scale that makes every desktop screen show the same layout (see --z in globals.css) */}
+        <script dangerouslySetInnerHTML={{ __html: fitScript }} />
         {children}
         <Analytics />
       </body>
