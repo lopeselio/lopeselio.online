@@ -132,15 +132,15 @@ function startCourse(
     const pulse = new THREE.Mesh(pulseGeo, new THREE.MeshBasicMaterial({ color: SIGNAL, transparent: true, opacity: 0 }));
     pulse.position.y = 1.6;
     group.add(ring, pulse);
-    let gem: T.Mesh | null = null;
-    if (s.gold) {
-      gem = new THREE.Mesh(gemGeo, new THREE.MeshStandardMaterial({ color: SIGNAL, flatShading: true, emissive: SIGNAL, emissiveIntensity: 0.3 }));
-      gem.position.y = 4.9;
-      group.add(gem);
-    }
+    // every checkpoint gets a gem: orange for a 1st-place split, white (and a little smaller) for the rest
+    const gemMat = new THREE.MeshStandardMaterial({ color: s.gold ? SIGNAL : IVORY, flatShading: true, emissive: s.gold ? SIGNAL : IVORY, emissiveIntensity: 0.3 });
+    const gem = new THREE.Mesh(gemGeo, gemMat);
+    gem.position.y = 4.9;
+    if (!s.gold) gem.scale.setScalar(0.75);
+    group.add(gem);
     scene.add(group);
-    const top = new THREE.Vector3(0, 4.1 + (s.gold ? 1.6 : 0), 0);
-    return { id: s.id, gold: Boolean(s.gold), group, ring, ringMat, pulse, gem, top, label: labelRoot.children[i] as HTMLElement };
+    const top = new THREE.Vector3(0, 5.7, 0);
+    return { id: s.id, gold: Boolean(s.gold), group, ring, ringMat, pulse, gem, gemMat, top, label: labelRoot.children[i] as HTMLElement };
   });
 
   /* ---------- Floating blocks the pointer can scatter ---------- */
@@ -387,10 +387,9 @@ function startCourse(
       g.ring.rotation.z += (0.002 + (isHover ? 0.03 : 0)) * (motion || 0.3);
       g.ring.scale.setScalar(THREE.MathUtils.lerp(g.ring.scale.x, isHover ? 1.12 : 1, 0.15));
       if (!g.gold) g.ringMat.color.lerp(isActive || isHover ? signalColor : inkColor, 0.08);
-      if (g.gem) {
-        g.gem.rotation.y += 0.025 * motion + 0.003;
-        g.gem.position.y = 4.9 + Math.sin(time * 2 + i) * 0.25;
-      }
+      if (!g.gold) g.gemMat.color.lerp(isActive || isHover ? signalColor : inkColor, 0.08);
+      g.gem.rotation.y += 0.025 * motion + 0.003;
+      g.gem.position.y = 4.9 + Math.sin(time * 2 + i) * 0.25;
       const phase = (time * 0.7 + i * 0.13) % 1;
       const pm = g.pulse.material as T.MeshBasicMaterial;
       g.pulse.scale.setScalar(1 + phase * 0.7);
