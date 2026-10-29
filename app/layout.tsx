@@ -46,6 +46,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
+  // Google Search Console ownership check for https://lopeselio.online/
+  verification: { google: "mXwiDy9rhXUvytl28UbBj-Bgo4kOkyq4mamLETyVHyM" },
   openGraph: {
     title: `${profile.name}: ${profile.tagline}`,
     description,
