@@ -74,6 +74,8 @@ function Carousel({ items }: { items: Media[] }) {
     raf = requestAnimationFrame(frame);
 
     function down(e: PointerEvent) {
+      // Let buttons and links inside a card (like Sound on) take their own clicks.
+      if (e.target instanceof Element && e.target.closest("button, a")) return;
       dragging = true;
       moved = 0;
       fling = 0;
