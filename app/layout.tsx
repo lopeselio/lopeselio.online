@@ -24,13 +24,21 @@ export const metadata: Metadata = {
   title: `${profile.name}: games, blockchains and the software in between`,
   description: profile.intro,
   openGraph: {
-    title: profile.name,
+    title: `${profile.name}: ${profile.tagline}`,
     description: profile.intro,
     url: "https://lopeselio.online",
-    images: ["/media/cryptara-cover.jpg"],
+    siteName: "lopeselio.online",
+    // made from docs/og-cover.html
+    images: [{ url: "/media/og-cover.jpg", width: 1200, height: 630, alt: `${profile.name}: ${profile.tagline}` }],
     type: "profile",
   },
-  twitter: { card: "summary_large_image", creator: "@ElioCodes" },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@ElioCodes",
+    title: `${profile.name}: ${profile.tagline}`,
+    description: profile.intro,
+    images: ["/media/og-cover.jpg"],
+  },
 };
 
 export const viewport: Viewport = { themeColor: "#0C0E13" };
