@@ -255,6 +255,12 @@ export const chapters: Chapter[] = [
       },
       {
         kind: "photo",
+        src: "/media/intrant-inferis-breakpoint-booth.jpg",
+        alt: "The Intrant Inferis booth: a banner, game T-shirts, stickers, a tablet feedback form and a laptop showing the game's logo.",
+        caption: "Our Intrant Inferis booth at the Breakpoint 2023 community basecamp, getting feedback from players in person",
+      },
+      {
+        kind: "photo",
         src: "/media/web3-gaming-week.jpg",
         alt: "Elio standing next to a Web3 Gaming Week banner with another builder.",
         caption: "Web3 Gaming Week, 2023",
