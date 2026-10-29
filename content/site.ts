@@ -650,7 +650,7 @@ export const afk = {
         { label: "Losing My Virginity", text: "Richard Branson" },
         { label: "The Everything Store: Jeff Bezos and the Age of Amazon" },
         { label: "Steve Jobs", text: "Walter Isaacson" },
-        { label: "The Psychology of Money" },
+        { label: "The Psychology of Money", text: "Morgan Housel" },
         { label: "You've Reached Sam", text: "Dustin Thao" },
         { label: "Inside Coca-Cola", text: "Neville Isdell" },
         { label: "Measure What Matters", text: "John Doerr" },
