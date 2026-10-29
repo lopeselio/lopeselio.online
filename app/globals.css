@@ -347,18 +347,25 @@ h1, h2, h3 { margin: 0; font-weight: 800; }
 }
 .jl {
   position: absolute; left: 0; top: 0; opacity: 0;
-  white-space: nowrap; font-size: 13px; line-height: 1;
-  padding: 6px 10px; border-radius: 999px;
-  background: rgba(20, 23, 30, .9); border: 1px solid var(--line-strong); color: var(--text);
+  white-space: nowrap; font-size: 16px; font-weight: 700; line-height: 1;
+  font-variation-settings: "wdth" 108;
+  padding: 9px 16px; border-radius: 999px;
+  /* orange capsule, black text */
+  background: var(--signal); color: #000; border: 2px solid var(--signal);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, .45);
   will-change: transform, opacity;
-  transition: background .2s, color .2s, border-color .2s;
+  transition: box-shadow .2s, text-shadow .2s, transform .2s, background .2s;
 }
-.jl b { font-variant-numeric: tabular-nums; margin-right: 2px; }
-.jl i { font-style: normal; color: var(--muted); margin-left: 4px; }
-.jl[data-gold="true"] b { color: var(--signal); }
-.jl[data-active="true"] { border-color: var(--signal); }
-.jl[data-hover="true"] { background: var(--signal); color: var(--on-signal); border-color: var(--signal); }
-.jl[data-hover="true"] b, .jl[data-hover="true"] i { color: var(--on-signal); }
+.jl b { font-variant-numeric: tabular-nums; margin-right: 4px; font-weight: 900; }
+.jl i { font-style: normal; font-weight: 600; margin-left: 6px; opacity: .75; }
+.jl[data-gold="true"] b::before { content: "◆ "; }
+.jl[data-active="true"] { border-color: #fff; }
+/* hovering the ring: the text and the capsule glow white */
+.jl[data-hover="true"] {
+  background: #ff8a45;
+  text-shadow: 0 0 6px #fff, 0 0 14px #fff;
+  box-shadow: 0 0 0 2px #fff, 0 0 18px 4px rgba(255, 255, 255, .7), 0 0 42px 10px rgba(255, 122, 47, .5);
+}
 
 /* ---------- Small screens: the split timer becomes a top bar ---------- */
 @media (max-width: 900px) {

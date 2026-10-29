@@ -104,8 +104,8 @@ function startCourse(THREE: typeof T, canvas: HTMLCanvasElement, labelRoot: HTML
   /* ---------- Checkpoints, one per chapter ---------- */
   const n = splits.length;
   const gateT = splits.map((_, i) => 0.13 + (i * 0.78) / Math.max(1, n - 1));
-  const ringGeo = new THREE.TorusGeometry(2.2, 0.07, 10, 90);
-  const pulseGeo = new THREE.TorusGeometry(2.2, 0.03, 6, 90);
+  const ringGeo = new THREE.TorusGeometry(2.2, 0.13, 14, 96);
+  const pulseGeo = new THREE.TorusGeometry(2.2, 0.05, 8, 96);
   const gemGeo = new THREE.OctahedronGeometry(0.55);
   const inkColor = new THREE.Color(IVORY);
   const signalColor = new THREE.Color(SIGNAL);
@@ -114,7 +114,8 @@ function startCourse(THREE: typeof T, canvas: HTMLCanvasElement, labelRoot: HTML
     const p = at(gateT[i]);
     group.position.copy(p);
     group.lookAt(p.clone().add(curve.getTangentAt(gateT[i])));
-    const ringMat = new THREE.MeshStandardMaterial({ color: s.gold ? SIGNAL : IVORY, roughness: 0.35, metalness: 0.15 });
+    // a little self-lit so the rings read clearly against the dark
+    const ringMat = new THREE.MeshStandardMaterial({ color: s.gold ? SIGNAL : IVORY, roughness: 0.35, metalness: 0.15, emissive: s.gold ? SIGNAL : IVORY, emissiveIntensity: 0.35 });
     const ring = new THREE.Mesh(ringGeo, ringMat);
     ring.position.y = 1.6;
     const pulse = new THREE.Mesh(pulseGeo, new THREE.MeshBasicMaterial({ color: SIGNAL, transparent: true, opacity: 0 }));
@@ -358,7 +359,6 @@ function startCourse(THREE: typeof T, canvas: HTMLCanvasElement, labelRoot: HTML
     const reading = chapterY.length > 0 && scrollY > chapterY[0];
     dim += ((reading ? 0.5 : 1) - dim) * 0.06;
     canvas.style.opacity = dim.toFixed(3);
-    labelRoot.style.opacity = dim.toFixed(3);
     const w = innerWidth;
     const h = innerHeight;
     let best = -1;
