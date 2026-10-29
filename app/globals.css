@@ -395,6 +395,7 @@ h1, h2, h3 { margin: 0; font-weight: 800; }
   padding: 24px var(--gutter); font-size: 14px; color: var(--muted);
   background: var(--bg);
 }
+.work-more { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin: -16px 0 clamp(24px, 4vh, 40px); color: var(--muted); }
 
 /* ---------- 3D: the course behind the page ---------- */
 .journey { position: fixed; inset: 0; z-index: -1; pointer-events: none; }

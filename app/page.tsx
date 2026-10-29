@@ -87,6 +87,12 @@ export default function Home() {
           <h2 id="work-title" className="section-title">
             Everything I&apos;ve shipped
           </h2>
+          <p className="work-more">
+            Most of the code is open.{" "}
+            <a className="btn btn-ghost" href={profile.github} target="_blank" rel="noreferrer">
+              Check out my GitHub
+            </a>
+          </p>
           <ul className="work">
             {work.map((item) => (
               <li key={item.name}>

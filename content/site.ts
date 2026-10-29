@@ -88,6 +88,7 @@ export const profile = {
   intro:
     "I build games and the software around them. Since 2018 that has meant a computer science degree, a Web3 game studio, a launch that reached 13,000 players in six weeks, open-source tooling, and now a product I'm building on my own.",
   email: "lopeselio@gmail.com",
+  github: "https://github.com/lopeselio",
   cv: "/Elio_Jordan_Lopes_CV.pdf",
   portrait: { src: "/media/elio-portrait.jpg", alt: "Elio smiling beside a studio microphone." },
   links: [
