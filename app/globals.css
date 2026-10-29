@@ -250,6 +250,18 @@ h1, h2, h3 { margin: 0; font-weight: 800; }
   background: var(--bg-raised); border: 1px solid var(--line); text-decoration: none;
 }
 .embed-fallback:hover { border-color: var(--signal); }
+.media .mcard[data-wide="true"] { grid-column: 1 / -1; }
+.media:has(.mcard[data-wide="true"]) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.mcard figcaption a { color: var(--muted); margin-left: 8px; }
+.mcard figcaption a:hover { color: var(--signal); }
+.mcard-sound {
+  position: absolute; right: 12px; bottom: 12px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border-radius: 999px; border: 0; cursor: pointer;
+  font: 600 13px var(--font); color: var(--on-signal); background: var(--signal);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .4);
+}
+.mcard-sound[aria-pressed="true"] { background: var(--text); }
 .mcard figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); }
 
 /* A chapter's moving carousel: runs edge to edge, drifts, and can be dragged */

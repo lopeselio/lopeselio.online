@@ -20,6 +20,12 @@ export type Media = {
   poster?: string;
   alt: string;
   caption?: string;
+  /** The video has a soundtrack: it still autoplays muted, with a button to turn sound on. */
+  sound?: boolean;
+  /** Spans the full width of the chapter's grid. */
+  wide?: boolean;
+  /** Where the photo or clip came from, linked under the caption. */
+  credit?: Link;
 };
 
 export type Chapter = {

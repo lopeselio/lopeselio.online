@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 import type { Media } from "@/content/site";
 
@@ -135,6 +135,32 @@ function MediaCard({ item, copy = false }: { item: Media; copy?: boolean }) {
   const ref = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const reduce = useReducedMotion();
+  const [soundOn, setSoundOn] = useState(false);
+
+  // Only one clip plays with sound at a time: turning one on mutes the rest.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !item.sound) return;
+    const onOther = (e: Event) => {
+      if ((e as CustomEvent<HTMLVideoElement>).detail === video) return;
+      video.muted = true;
+      setSoundOn(false);
+    };
+    window.addEventListener("media-sound", onOther);
+    return () => window.removeEventListener("media-sound", onOther);
+  }, [item.sound]);
+
+  function toggleSound() {
+    const video = videoRef.current;
+    if (!video) return;
+    const on = video.muted;
+    video.muted = !on;
+    setSoundOn(on);
+    if (on) {
+      window.dispatchEvent(new CustomEvent("media-sound", { detail: video }));
+      video.play().catch(() => {});
+    }
+  }
 
   useEffect(() => {
     const video = videoRef.current;
@@ -176,6 +202,7 @@ function MediaCard({ item, copy = false }: { item: Media; copy?: boolean }) {
       ref={ref}
       className="mcard"
       data-kind={item.kind}
+      data-wide={item.wide || undefined}
       aria-hidden={copy || undefined}
       onPointerMove={tilt}
       onPointerLeave={reset}
@@ -199,8 +226,28 @@ function MediaCard({ item, copy = false }: { item: Media; copy?: boolean }) {
             <img className="mcard-img" src={item.src} alt={copy ? "" : item.alt} loading="lazy" draggable={false} onLoad={checkShape} />
           </>
         )}
+        {item.kind === "video" && item.sound ? (
+          <button
+            type="button"
+            className="mcard-sound"
+            aria-pressed={soundOn}
+            tabIndex={copy ? -1 : undefined}
+            onClick={toggleSound}
+          >
+            {soundOn ? "Sound off" : "Sound on"}
+          </button>
+        ) : null}
       </div>
-      {item.caption ? <figcaption>{item.caption}</figcaption> : null}
+      {item.caption || item.credit ? (
+        <figcaption>
+          {item.caption}
+          {item.credit ? (
+            <a className="textlink" href={item.credit.href} target="_blank" rel="noreferrer" tabIndex={copy ? -1 : undefined}>
+              {item.credit.label}
+            </a>
+          ) : null}
+        </figcaption>
+      ) : null}
     </figure>
   );
 }
