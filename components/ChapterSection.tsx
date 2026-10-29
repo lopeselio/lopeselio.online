@@ -2,10 +2,11 @@ import type { Chapter } from "@/content/site";
 import ChapterMedia from "./ChapterMedia";
 import Counter from "./Counter";
 import LaunchField from "./LaunchField";
+import TweetEmbed from "./TweetEmbed";
 import WidenTitle from "./WidenTitle";
 
 export default function ChapterSection({ chapter, index }: { chapter: Chapter; index: number }) {
-  const { id, when, title, story, facts, stats, links, media, mediaLayout, gold, feature } = chapter;
+  const { id, when, title, story, facts, stats, links, media, mediaLayout, embed, gold, feature } = chapter;
 
   return (
     <article id={id} className="chapter" data-gold={Boolean(gold)} data-feature={Boolean(feature)}>
@@ -61,6 +62,8 @@ export default function ChapterSection({ chapter, index }: { chapter: Chapter; i
           ))}
         </dl>
       ) : null}
+
+      {embed ? <TweetEmbed url={embed.url} caption={embed.caption} /> : null}
 
       {media?.length ? <ChapterMedia items={media} layout={mediaLayout} /> : null}
     </article>
