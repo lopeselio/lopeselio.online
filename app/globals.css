@@ -391,10 +391,17 @@ h1, h2, h3 { margin: 0; font-weight: 800; }
 .closing h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
 
 .footer {
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
   padding: 24px var(--gutter); font-size: 14px; color: var(--muted);
   background: var(--bg);
 }
+.footer-social { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; }
+.footer-social a:not(.textlink) {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text);
+  padding: 6px 12px 6px 10px; border-radius: 999px; border: 1px solid var(--line-strong);
+  transition: color .2s, border-color .2s, background .2s;
+}
+.footer-social a:not(.textlink):hover { color: var(--signal); border-color: var(--signal); background: rgba(255, 122, 47, .08); }
 .work-more { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin: -16px 0 clamp(24px, 4vh, 40px); color: var(--muted); }
 
 /* ---------- 3D: the course behind the page ---------- */

@@ -7,6 +7,27 @@ import Run from "@/components/Run";
 
 const [first, middle, last] = profile.name.split(" ");
 
+// Outline icons drawn in the page's text colour, so they match the theme.
+function SocialIcon({ name }: { name: string }) {
+  const common = { width: 18, height: 18, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, "aria-hidden": true } as const;
+  if (name === "Instagram")
+    return (
+      <svg {...common}>
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4.2" />
+        <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  if (name === "LinkedIn")
+    return (
+      <svg {...common}>
+        <rect x="3" y="3" width="18" height="18" rx="3" />
+        <path d="M8 10.5V16.5M8 7.6v.1M11.5 16.5v-6M11.5 13c0-1.6 1-2.6 2.4-2.6s2.1 1 2.1 2.6v3.5" strokeLinecap="round" />
+      </svg>
+    );
+  return null;
+}
+
 export default function Home() {
   const splits = chapters.map(({ id, split, when, gold }) => ({ id, split, when, gold }));
 
@@ -151,11 +172,21 @@ export default function Home() {
 
       <footer className="footer">
         <span>{profile.name}, {profile.location}</span>
-        <span>
-          <a className="textlink" href={profile.cv} download>
-            Full CV (PDF)
-          </a>
-        </span>
+        <ul className="footer-social">
+          {profile.socials.map((link) => (
+            <li key={link.href}>
+              <a href={link.href} target="_blank" rel="noreferrer">
+                <SocialIcon name={link.label} />
+                {link.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a className="textlink" href={profile.cv} download>
+              Full CV (PDF)
+            </a>
+          </li>
+        </ul>
       </footer>
     </>
   );
