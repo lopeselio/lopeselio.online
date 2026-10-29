@@ -155,8 +155,10 @@ function startRing(
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     // pull back on narrow screens so the front photo still fits
-    camera.position.set(0, 2.2, R + (w / h < 1 ? 13 : 10));
-    camera.lookAt(0, 0.4, 0);
+    const narrow = w / h < 1;
+    camera.position.set(0, 2.2, R + (narrow ? 13 : 10));
+    // on tall, narrow screens aim a little lower so the ring sits higher, closer to the heading
+    camera.lookAt(0, narrow ? -1.2 : 0.4, 0);
     camera.updateProjectionMatrix();
   }
   const sizeObserver = new ResizeObserver(resize);

@@ -431,7 +431,8 @@ function startCourse(
     if (next !== shownNext) {
       shownNext = next;
       const s = splits[next];
-      nextChip.hidden = !s;
+      // hidden in the header, where "Start the run" already points at the first chapter
+      nextChip.hidden = !s || next === 0;
       if (s) {
         nextChip.href = `#${s.id}`;
         nextChip.dataset.gold = String(Boolean(s.gold));

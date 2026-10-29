@@ -303,7 +303,7 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
   transform: perspective(1400px) rotateY(var(--cf-ry, 0deg)) scale(var(--cf-s, 1));
   opacity: var(--cf-o, 1);
 }
-.carousel .mcard figcaption { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.carousel .mcard figcaption { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
 /* The launch chapter: the climax, with its own scene */
 .chapter[data-feature="true"] {
@@ -488,6 +488,7 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
   .carousel { margin-left: calc(-1 * var(--gutter)); }
   .carousel .mcard { width: 72vw; }
   .launch-hint { display: none; }
+  .moments-stage { height: clamp(340px, 58vh, 500px); }
   .work li { grid-template-columns: 48px 1fr; }
   .work .wt, .work .lk { grid-column: 2; justify-content: flex-start; }
   .closing-grid { grid-template-columns: 1fr; }
