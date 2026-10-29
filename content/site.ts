@@ -103,6 +103,8 @@ export const profile = {
   location: "Dubai, UAE",
   /** One line above the name; the site's checkpoints sit on a coaster-like track. */
   tagline: "Life is a roller coaster. Welcome to mine.",
+  /** Communities I'm part of now, shown in the header. */
+  community: "Superteam India member · Chainlink Developer Expert",
   intro:
     "I started out studying computer science, but I was always building things outside the classroom. That took me from hackathons and research papers to co-founding a game studio, shipping games on-chain, and learning what it takes to keep them running in the real world. Now I'm building Terrace Social on my own, and this is how I got here.",
   /** The kind of role I'm looking for, shown in the header and the closing section. */

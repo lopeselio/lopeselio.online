@@ -71,6 +71,8 @@ export default function Home() {
               <dd>
                 <Mentions text="Co-founder, CEO and CTO of IntoTheVerse" />
               </dd>
+              <dt>Community</dt>
+              <dd>{profile.community}</dd>
               <dt>Open to</dt>
               <dd>{profile.openTo}</dd>
               <dt>Based in</dt>
