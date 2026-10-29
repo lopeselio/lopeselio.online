@@ -160,6 +160,12 @@ export const chapters: Chapter[] = [
     media: [
       {
         kind: "photo",
+        src: "/media/celo-camp-demo-day.jpg",
+        alt: "A live demo of our pixel-art game world on a video call, with a dialog asking the player to donate 2 cUSD to Impact Market.",
+        caption: "Demoing our game at Celo Camp Batch 4 demo day, 2021",
+      },
+      {
+        kind: "photo",
         src: "/media/flori-retreat.jpg",
         alt: "Elio and other founders talking in a circle at a retreat.",
         caption: "Flori founders' retreat, Mas Cabanyes, Catalonia, 2022",
