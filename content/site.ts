@@ -134,12 +134,14 @@ export const chapters: Chapter[] = [
     story: [
       "I studied Computer Science and Engineering at Vellore Institute of Technology. The degree gave me the foundations, but a lot of my learning happened outside class. I led web projects on the ACM-VIT board, won a Facebook SparkAR scholarship in 2020, and wrote three research papers along the way.",
       "One of those papers started as a hackathon project: a live-streaming service where viewers paid by the second, built on Ethereum and IPFS. It eventually made its way into Springer's Wireless Networks. I liked seeing an idea move from a working prototype into something published. It made me want to keep building beyond coursework.",
+      "Toward the end of my degree, I also became a part-time technical moderator for the Celo Foundation's developer community. I spent time on Discord and the forums answering questions, mentoring developers on validators, wallets, local nodes and smart contracts, and helping teams get unstuck during hackathons.",
       "By 2021, I was ready to take that work beyond university projects and start building for people who would actually use it.",
     ],
     facts: [
       "B.Tech, Computer Science and Engineering, CGPA 8.84",
       "Web Projects Lead, ACM-VIT board, 2018 to 2021",
       "3 published papers",
+      "Technical moderator, Celo Foundation developer community, 2022 to 2023",
     ],
     links: [
       { label: "Springer paper", href: "https://doi.org/10.1007/s11276-022-03009-6" },
@@ -223,7 +225,6 @@ export const chapters: Chapter[] = [
       "Celo Camp Batch 4, top 6 of 30",
       "Gitcoin Kernel Fellow, 2022",
       "SolanaU Web3 Accelerator, 2022",
-      "Celo Foundation technical moderator for a 15K+ developer community",
     ],
   },
   {
@@ -699,7 +700,6 @@ export const moments: Media[] = [
 export const community = [
   "Member of Superteam India",
   "Chainlink Developer Expert, and hands-on workshops at BITS Pilani Goa, IIT Goa, Goa College of Engineering and Padre Conceição College of Engineering",
-  "Technical moderator for the Celo Foundation's developer community",
 ];
 
 export const closing = {
