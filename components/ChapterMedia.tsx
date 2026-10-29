@@ -6,7 +6,13 @@ import type { Media } from "@/content/site";
 
 // A chapter's photos and clips. Cards tilt toward the pointer; videos play only while on screen.
 export default function ChapterMedia({ items, layout = "grid" }: { items: Media[]; layout?: "grid" | "carousel" }) {
-  if (layout === "carousel") return <Carousel items={items} />;
+  if (layout === "carousel")
+    return (
+      <MovingStrip
+        items={items}
+        render={(item, copy, i) => <MediaCard key={`${item.src}-${i}`} item={item} copy={copy} />}
+      />
+    );
   return (
     <div className="media" data-count={items.length}>
       {items.map((item) => (
@@ -18,7 +24,13 @@ export default function ChapterMedia({ items, layout = "grid" }: { items: Media[
 
 // An endless strip that drifts sideways. Hover to slow it, drag or flick to move it.
 // Cards turn away slightly as they move off-centre, like a coverflow.
-function Carousel({ items }: { items: Media[] }) {
+export function MovingStrip<T>({
+  items,
+  render,
+}: {
+  items: T[];
+  render: (item: T, copy: boolean, i: number) => React.ReactNode;
+}) {
   const viewRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
@@ -125,9 +137,7 @@ function Carousel({ items }: { items: Media[] }) {
   return (
     <div ref={viewRef} className="carousel">
       <div ref={trackRef} className="carousel-track">
-        {[...items, ...items].map((item, i) => (
-          <MediaCard key={`${item.src}-${i}`} item={item} copy={i >= items.length} />
-        ))}
+        {[...items, ...items].map((item, i) => render(item, i >= items.length, i))}
       </div>
     </div>
   );

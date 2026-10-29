@@ -62,6 +62,8 @@ export type Chapter = {
   media?: Media[];
   /** "carousel" shows the media as a moving strip you can drag, instead of a grid. */
   mediaLayout?: "grid" | "carousel";
+  /** "carousel" shows the numbers as a moving strip instead of a grid. */
+  statsLayout?: "grid" | "carousel";
   /** A post from X shown under the story. */
   post?: Post;
   /** Speedrun "gold split": a part of the run with a 1st-place finish. */
@@ -219,6 +221,7 @@ export const chapters: Chapter[] = [
       "Across more than 15 hackathon wins and grants, we raised over $250K without giving up any equity. Those results mattered, but so did getting the games out of our own hands and in front of players. A pitch or a prize can get people interested; a shipped game gives them something to try.",
       "That experience set up our biggest test yet: taking Cryptara Conquest live and seeing how people would actually play it.",
     ],
+    statsLayout: "carousel",
     stats: [
       { value: 30, prefix: "$", suffix: "K", label: "1st place, Aptos Hack Singapore" },
       { value: 26, prefix: "$", suffix: "K", label: "1st place, Solana Speedrun Game Jam" },

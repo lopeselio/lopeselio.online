@@ -4,10 +4,11 @@ import Counter from "./Counter";
 import LaunchField from "./LaunchField";
 import Mentions from "./Mentions";
 import PostCard from "./PostCard";
+import StatsStrip from "./StatsStrip";
 import WidenTitle from "./WidenTitle";
 
 export default function ChapterSection({ chapter, index }: { chapter: Chapter; index: number }) {
-  const { id, when, title, story, facts, stats, links, media, mediaLayout, post, gold, feature } = chapter;
+  const { id, when, title, story, facts, stats, statsLayout, links, media, mediaLayout, post, gold, feature } = chapter;
 
   return (
     <article id={id} className="chapter" data-gold={Boolean(gold)} data-feature={Boolean(feature)}>
@@ -53,7 +54,9 @@ export default function ChapterSection({ chapter, index }: { chapter: Chapter; i
         )}
       </div>
 
-      {stats?.length ? (
+      {stats?.length && statsLayout === "carousel" ? (
+        <StatsStrip stats={stats} />
+      ) : stats?.length ? (
         <dl className="stats">
           {stats.map((stat) => (
             <div className="stat" key={stat.label}>
