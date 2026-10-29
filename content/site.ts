@@ -75,6 +75,8 @@ export type Brand = { name: string; x: string; logo: string };
 export const brands: Brand[] = [
   { name: "Cryptara Conquest", x: "https://x.com/CryptaraConq", logo: "/media/logo-cryptara.jpg" },
   { name: "IntoTheVerse", x: "https://x.com/IntoTheVerse_", logo: "/media/logo-intotheverse.jpg" },
+  { name: "Intrant Inferis", x: "https://x.com/IntrantInferis", logo: "/media/logo-intrant-inferis.jpg" },
+  { name: "MetaMeadow Boomtown", x: "https://x.com/MetaBoomtown", logo: "/media/logo-metameadow.jpg" },
   { name: "Sushi Nads", x: "https://x.com/sushinads", logo: "/media/logo-sushinads.jpg" },
   { name: "Terrace", x: "https://x.com/terrace_social", logo: "/media/logo-terrace.jpg" },
 ];
