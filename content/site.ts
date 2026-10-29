@@ -254,7 +254,14 @@ export const chapters: Chapter[] = [
       { value: 13000, suffix: "+", label: "hours played" },
       { value: 367, suffix: "K+", label: "on-chain transactions" },
     ],
+    mediaLayout: "carousel",
     media: [
+      {
+        kind: "photo",
+        src: "/media/building-cryptara-tavern.jpg",
+        alt: "A hand holding a phone showing the Cryptara Conquest tavern, with the Unity editor on the monitor behind.",
+        caption: "Building the game",
+      },
       {
         kind: "video",
         src: "/media/sushi-nads-trailer.mp4",
@@ -267,6 +274,12 @@ export const chapters: Chapter[] = [
         src: "/media/fan-playing-cryptara.jpg",
         alt: "A phone running Cryptara Conquest beside a burger in a takeaway box.",
         caption: "A player's lunch break with Cryptara Conquest",
+      },
+      {
+        kind: "photo",
+        src: "/media/fan-playing-cryptara-dog.jpg",
+        alt: "A phone running Cryptara Conquest on a bed, with a fluffy white dog lying beside it.",
+        caption: "Cryptara Conquest, with company",
       },
       {
         kind: "video",
