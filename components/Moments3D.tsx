@@ -64,7 +64,6 @@ function startRing(
     return () => {};
   }
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   const scene = new THREE.Scene();
@@ -152,6 +151,8 @@ function startRing(
     const w = canvas.clientWidth;
     const h = canvas.clientHeight;
     if (!w || !h) return;
+    // the page may be scaled up (--z), so draw at the size it shows on screen to stay sharp
+    renderer.setPixelRatio(Math.min(devicePixelRatio * (canvas.getBoundingClientRect().width / w), 2));
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     // pull back on narrow screens so the front photo still fits

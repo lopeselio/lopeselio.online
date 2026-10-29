@@ -97,7 +97,8 @@ export function MovingStrip<T>({
     }
     function move(e: PointerEvent) {
       if (!dragging) return;
-      const dx = e.clientX - lastX;
+      // the page may be scaled (--z), so convert screen pixels to the track's own pixels to keep it under the finger
+      const dx = (e.clientX - lastX) / (view.getBoundingClientRect().width / view.offsetWidth || 1);
       const now = performance.now();
       offset -= dx;
       moved += Math.abs(dx);

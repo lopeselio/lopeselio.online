@@ -83,7 +83,6 @@ function startField(THREE: typeof T, host: HTMLElement, canvas: HTMLCanvasElemen
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const small = innerWidth < 900;
   const pixel = Math.min(devicePixelRatio, small ? 1.5 : 2);
-  renderer.setPixelRatio(pixel);
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
@@ -165,6 +164,8 @@ function startField(THREE: typeof T, host: HTMLElement, canvas: HTMLCanvasElemen
     const w = canvas.clientWidth;
     const h = canvas.clientHeight;
     if (!w || !h) return;
+    // the page may be scaled up (--z), so draw at the size it shows on screen to stay sharp
+    renderer.setPixelRatio(Math.min(pixel * (canvas.getBoundingClientRect().width / w), 2));
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     // Sit the galaxy to the right of the story on wide screens.
