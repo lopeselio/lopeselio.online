@@ -633,6 +633,8 @@ export const afk = {
         { label: "Switzerland", text: "Geneva and cold mountain stays." },
         { label: "Portugal", text: "Lisbon, good food and wine." },
         { label: "The Netherlands", text: "Amsterdam, the countryside and brewery visits." },
+        { label: "Singapore", text: "Green city streets and gardens everywhere." },
+        { label: "Thailand", text: "Beaches and green, laid-back cities." },
         { label: "Dubai", text: "A little bit of everything." },
       ],
     },
