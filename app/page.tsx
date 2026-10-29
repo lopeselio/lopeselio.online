@@ -14,6 +14,7 @@ export default function Home() {
       <Journey3D splits={splits} />
       <header className="topbar">
         <a className="wordmark" href="/">
+          <img src="/media/lion-mark.png" alt="" width={28} height={28} />
           lopeselio
         </a>
         <nav aria-label="Quick links">
