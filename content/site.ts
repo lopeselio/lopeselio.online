@@ -22,10 +22,26 @@ export type Media = {
   caption?: string;
   /** The video has a soundtrack: it still autoplays muted, with a button to turn sound on. */
   sound?: boolean;
-  /** Spans the full width of the chapter's grid. */
-  wide?: boolean;
-  /** Where the photo or clip came from, linked under the caption. */
-  credit?: Link;
+};
+
+/** A post from X, shown as a card with its video playing inline. */
+export type Post = {
+  author: string;
+  handle: string;
+  avatar: string;
+  verified?: boolean;
+  text: string;
+  url: string;
+  /** ISO date the post went up. */
+  date: string;
+  /** Counts as they were when added to the site. */
+  views: number;
+  replies: number;
+  reposts: number;
+  likes: number;
+  video: Media;
+  /** Credit line shown under the card. */
+  credit: string;
 };
 
 export type Chapter = {
@@ -46,6 +62,8 @@ export type Chapter = {
   media?: Media[];
   /** "carousel" shows the media as a moving strip you can drag, instead of a grid. */
   mediaLayout?: "grid" | "carousel";
+  /** A post from X shown under the story. */
+  post?: Post;
   /** Speedrun "gold split": a part of the run with a 1st-place finish. */
   gold?: boolean;
   /** Renders the chapter as the dark, full-width climax. Use for one chapter only. */
@@ -109,17 +127,28 @@ export const chapters: Chapter[] = [
       "In September 2021 I co-founded IntoTheVerse with Ramesh Sachan, my batchmate and friend from university: a game studio building on public blockchains. We were one of 6 teams picked out of 30 for Celo Camp Batch 4, raised from Flori Ventures and angel investors, and incorporated in Delaware in January 2022.",
       "I was CEO and CTO, which meant product, engineering and hiring. The team grew to 16 people working remotely, and we shipped games on Solana, Eclipse, Monad, Aptos, Algorand and Celo.",
     ],
-    media: [
-      {
+    post: {
+      author: "Indies On Solana",
+      handle: "indiesonsolana",
+      avatar: "/media/indies-on-solana-avatar.jpg",
+      verified: true,
+      text: "The best duo is bringing a game of skill to Solana @CryptaraConq",
+      url: "https://x.com/indiesonsolana/status/1959964154275770734",
+      date: "2025-08-25T13:00:43Z",
+      views: 7715,
+      replies: 14,
+      reposts: 12,
+      likes: 66,
+      video: {
         kind: "video",
         src: "/media/indies-on-solana-story.mp4",
         poster: "/media/indies-on-solana-story-poster.jpg",
         alt: "Indies On Solana's short film about Elio and Ramesh: from university batchmates to building IntoTheVerse and Cryptara Conquest.",
-        caption: "How Ramesh and I went from university batchmates to building IntoTheVerse",
         sound: true,
-        wide: true,
-        credit: { label: "Film by Indies On Solana", href: "https://x.com/indiesonsolana/status/1959964154275770734" },
       },
+      credit: "Film by Indies On Solana (@indiesonsolana), shot at the Indies On Solana villa, Vietnam, 2025.",
+    },
+    media: [
       {
         kind: "photo",
         src: "/media/flori-retreat.jpg",
