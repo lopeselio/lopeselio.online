@@ -46,8 +46,6 @@ export type Chapter = {
   media?: Media[];
   /** "carousel" shows the media as a moving strip you can drag, instead of a grid. */
   mediaLayout?: "grid" | "carousel";
-  /** A post embedded under the story, e.g. a tweet that tells part of it. */
-  embed?: { kind: "tweet"; url: string; caption?: string };
   /** Speedrun "gold split": a part of the run with a 1st-place finish. */
   gold?: boolean;
   /** Renders the chapter as the dark, full-width climax. Use for one chapter only. */
@@ -111,12 +109,17 @@ export const chapters: Chapter[] = [
       "In September 2021 I co-founded IntoTheVerse with Ramesh Sachan, my batchmate and friend from university: a game studio building on public blockchains. We were one of 6 teams picked out of 30 for Celo Camp Batch 4, raised from Flori Ventures and angel investors, and incorporated in Delaware in January 2022.",
       "I was CEO and CTO, which meant product, engineering and hiring. The team grew to 16 people working remotely, and we shipped games on Solana, Eclipse, Monad, Aptos, Algorand and Celo.",
     ],
-    embed: {
-      kind: "tweet",
-      url: "https://twitter.com/indiesonsolana/status/1959964154275770734",
-      caption: "How Ramesh and I went from university batchmates to building IntoTheVerse",
-    },
     media: [
+      {
+        kind: "video",
+        src: "/media/indies-on-solana-story.mp4",
+        poster: "/media/indies-on-solana-story-poster.jpg",
+        alt: "Indies On Solana's short film about Elio and Ramesh: from university batchmates to building IntoTheVerse and Cryptara Conquest.",
+        caption: "How Ramesh and I went from university batchmates to building IntoTheVerse",
+        sound: true,
+        wide: true,
+        credit: { label: "Film by Indies On Solana", href: "https://x.com/indiesonsolana/status/1959964154275770734" },
+      },
       {
         kind: "photo",
         src: "/media/flori-retreat.jpg",

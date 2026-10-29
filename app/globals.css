@@ -240,16 +240,6 @@ h1, h2, h3 { margin: 0; font-weight: 800; }
   filter: blur(22px) brightness(.55); transform: scale(1.15);
 }
 .mcard[data-portrait="true"] .mcard-img { position: relative; object-fit: contain; }
-
-/* An embedded post, such as a tweet */
-.embed { margin: clamp(32px, 5vh, 48px) 0 0; max-width: 560px; }
-.embed .twitter-tweet { margin: 0 !important; }
-.embed figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); }
-.embed-fallback {
-  display: block; padding: 18px 20px; border-radius: 12px;
-  background: var(--bg-raised); border: 1px solid var(--line); text-decoration: none;
-}
-.embed-fallback:hover { border-color: var(--signal); }
 .media .mcard[data-wide="true"] { grid-column: 1 / -1; }
 .media:has(.mcard[data-wide="true"]) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .mcard figcaption a { color: var(--muted); margin-left: 8px; }
