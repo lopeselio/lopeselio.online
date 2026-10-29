@@ -683,6 +683,13 @@ export const afk = {
         "Not every hour needs to be productive. Some just need to be fun.",
       ],
     },
+    {
+      title: "Learning languages",
+      emoji: "🗣️",
+      paragraphs: [
+        "I'm learning Spanish and Portuguese on Duolingo, a few lessons at a time. Barcelona and Lisbon left me wanting to order, chat and follow the football in the local language, not just point at menus.",
+      ],
+    },
   ] as AfkGroup[],
 };
 
