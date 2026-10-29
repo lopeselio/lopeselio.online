@@ -443,6 +443,13 @@ export const chapters: Chapter[] = [
   },
 ];
 
+/** Sections after the story that also get a split in the timer and a checkpoint on the course. */
+export const extraSplits: Pick<Chapter, "id" | "split" | "when">[] = [
+  { id: "work", split: "Shipped", when: "2018–26" },
+  { id: "moments", split: "Off the clock", when: "Life" },
+  { id: "contact", split: "What's next", when: "Now" },
+];
+
 export type Work = { name: string; what: string; year: string; links: Link[] };
 
 /** The full index of projects, shown after the story. Newest first. */

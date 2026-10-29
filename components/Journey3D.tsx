@@ -213,8 +213,6 @@ function startCourse(
       chapterY[i] = y - vh * 0.5;
       list.push([Math.max(y - vh * 0.4, list[list.length - 1][0] + 1), gateT[i] - 0.012]);
     });
-    const work = docY(document.getElementById("work"));
-    if (work !== null) list.push([Math.max(work - vh * 0.4, list[list.length - 1][0] + 1), 0.94]);
     list.push([Math.max(document.documentElement.scrollHeight - vh, list[list.length - 1][0] + 1), 0.97]);
     anchors = list;
   }

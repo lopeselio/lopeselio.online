@@ -1,4 +1,4 @@
-import { brands, chapters, closing, community, moments, profile, work } from "@/content/site";
+import { brands, chapters, closing, community, extraSplits, moments, profile, work } from "@/content/site";
 import ChapterSection from "@/components/ChapterSection";
 import Journey3D from "@/components/Journey3D";
 import Mentions from "@/components/Mentions";
@@ -29,7 +29,7 @@ function SocialIcon({ name }: { name: string }) {
 }
 
 export default function Home() {
-  const splits = chapters.map(({ id, split, when, gold }) => ({ id, split, when, gold }));
+  const splits = [...chapters.map(({ id, split, when, gold }) => ({ id, split, when, gold })), ...extraSplits];
 
   return (
     <>
@@ -96,7 +96,7 @@ export default function Home() {
         <p className="start">
           <a href={`#${chapters[0].id}`}>
             <span className="tick" aria-hidden="true" />
-            Start the run: {chapters.length} splits, {chapters[0].when} to now
+            Start the run: {splits.length} splits, {chapters[0].when} to now
           </a>
           <span className="start-hint">Move to look around. Click a checkpoint ring to jump to its chapter.</span>
         </p>
