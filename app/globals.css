@@ -104,6 +104,20 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
   border-radius: 50%; border: 2px solid var(--signal);
   box-shadow: 0 0 0 6px rgba(255, 122, 47, .14);
 }
+.hero-portrait-wrap { position: relative; justify-self: start; padding-bottom: 14px; }
+/* "Open to work" (or the current role), pinned to the bottom of the portrait */
+.status-badge {
+  position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 7px; white-space: nowrap;
+  padding: 5px 11px 5px 9px; border-radius: 999px;
+  background: #0c0e13; border: 1.5px solid #3ddc84; color: var(--text);
+  font: 700 12px/1 var(--display); letter-spacing: .01em;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .5);
+}
+.status-badge i { width: 8px; height: 8px; border-radius: 50%; background: #3ddc84; box-shadow: 0 0 0 0 rgba(61, 220, 132, .7); animation: status-pulse 1.8s ease-out infinite; }
+.status-badge[data-open="false"] { border-color: var(--signal); }
+.status-badge[data-open="false"] i { background: var(--signal); animation: none; }
+@keyframes status-pulse { to { box-shadow: 0 0 0 8px rgba(61, 220, 132, 0); } }
 .hero-intro { font-size: clamp(18px, 1.6vw, 21px); line-height: 1.5; }
 .facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; font-size: 15px; }
 .facts dt { color: var(--muted); }

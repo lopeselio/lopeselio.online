@@ -120,6 +120,11 @@ export const profile = {
   ] as Link[],
   cv: "/Elio_Jordan_Lopes_CV.pdf",
   portrait: { src: "/media/elio-portrait.jpg", alt: "Elio smiling beside a studio microphone." },
+  /**
+   * The badge on the portrait. While looking for a role: { label: "Open to work", open: true }.
+   * Once in a role, e.g. { label: "Engineer at Acme", open: false } (orange dot), or label: "" to hide it.
+   */
+  status: { label: "Open to work", open: true },
   links: [
     { label: "GitHub", href: "https://github.com/lopeselio" },
     { label: "LinkedIn", href: "https://linkedin.com/in/lopeselio" },

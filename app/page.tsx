@@ -73,7 +73,15 @@ export default function Home() {
             </h1>
           </div>
           <div className="hero-side">
-            <img className="hero-portrait" src={profile.portrait.src} alt={profile.portrait.alt} />
+            <div className="hero-portrait-wrap">
+              <img className="hero-portrait" src={profile.portrait.src} alt={profile.portrait.alt} />
+              {profile.status.label ? (
+                <span className="status-badge" data-open={profile.status.open}>
+                  <i aria-hidden="true" />
+                  {profile.status.label}
+                </span>
+              ) : null}
+            </div>
             <p className="hero-intro">{profile.intro}</p>
             <dl className="facts">
               <dt>Now</dt>
