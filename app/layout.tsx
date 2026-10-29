@@ -21,7 +21,7 @@ const body = Manrope({
 
 // Short, plain summary for search results and link previews (kept under ~160 characters).
 const description =
-  "Software engineer and former game studio co-founder in Dubai. I build full-stack web and mobile apps, on-chain games, and blockchain consumer and DeFi apps.";
+  "Software engineer and former venture-backed founder. I build full-stack web and mobile apps, on-chain games, and blockchain consumer and DeFi apps.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lopeselio.online"),
