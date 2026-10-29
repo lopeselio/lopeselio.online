@@ -123,6 +123,12 @@ export const chapters: Chapter[] = [
         alt: "A large group photo of founders on a lawn in front of a Spanish estate.",
         caption: "The Flori founder family in Spain, 2022",
       },
+      {
+        kind: "photo",
+        src: "/media/fil-singapore-2022.jpg",
+        alt: "Elio standing in front of the FIL-Singapore 2022 backdrop, with Filecoin and Protocol Labs logos.",
+        caption: "FIL-Singapore, September 2022",
+      },
     ],
     facts: [
       "Celo Camp Batch 4, top 6 of 30",
