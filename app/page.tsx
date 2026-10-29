@@ -111,7 +111,7 @@ export default function Home() {
 
         <section id="work" className="section" aria-labelledby="work-title">
           <h2 id="work-title" className="section-title">
-            Everything I&apos;ve shipped
+            I write code
           </h2>
           <p className="work-more">
             Most of the code is open.{" "}

@@ -447,7 +447,7 @@ export const chapters: Chapter[] = [
 
 /** Sections after the story that also get a split in the timer and a checkpoint on the course. */
 export const extraSplits: Pick<Chapter, "id" | "split" | "when">[] = [
-  { id: "work", split: "Shipped", when: "2018–26" },
+  { id: "work", split: "Code", when: "2018–26" },
   { id: "moments", split: "Off the clock", when: "Life" },
   { id: "contact", split: "What's next", when: "Now" },
 ];
