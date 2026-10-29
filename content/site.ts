@@ -87,6 +87,8 @@ export const profile = {
   location: "Dubai, UAE",
   intro:
     "I started out studying computer science, but I was always building things outside the classroom. That took me from hackathons and research papers to co-founding a game studio, shipping games on-chain, and learning what it takes to keep them running in the real world. Now I'm building Terrace Social on my own, and this is how I got here.",
+  /** The kind of role I'm looking for, shown in the header and the closing section. */
+  openTo: "Software development roles: full-stack web and mobile apps, and blockchain-based consumer and DeFi applications",
   email: "lopeselio@gmail.com",
   github: "https://github.com/lopeselio",
   /** Shown with icons in the footer. */
@@ -575,5 +577,5 @@ export const community = [
 
 export const closing = {
   title: "The run isn't finished",
-  body: "I've spent the last few years learning how to build, ship and keep products running, first with a team and now on my own. If you're hiring, investing, or building something nearby, I'd like to hear from you.",
+  body: "I've spent the last few years learning how to build, ship and keep products running, first with a team and now on my own. I'm looking for my next role in software development: full-stack web and mobile apps, and blockchain-based consumer and DeFi applications. If you're hiring, investing, or building something nearby, I'd like to hear from you.",
 };
