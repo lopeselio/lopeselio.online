@@ -261,6 +261,23 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
 }
 .mcard-sound[aria-pressed="true"] { background: var(--text); }
 
+/* Articles I wrote, as link cards */
+.articles { display: grid; gap: 16px; margin-top: clamp(28px, 5vh, 44px); max-width: 860px; }
+.article {
+  display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); align-items: stretch;
+  border: 1px solid var(--line-strong); border-radius: 16px; overflow: hidden; text-decoration: none;
+  background: rgba(255, 255, 255, .03); transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+.article:hover { border-color: var(--signal); transform: translateY(-2px); box-shadow: 0 18px 50px rgba(0, 0, 0, .45); }
+.article-cover { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16 / 9; }
+.article-body { display: grid; gap: 8px; align-content: center; padding: 18px 22px; }
+.article-kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.article-kicker svg { width: 14px; height: 14px; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(19px, 1.8vw, 24px); line-height: 1.2; color: var(--text); }
+.article-blurb { color: var(--muted); font-size: 15px; line-height: 1.5; }
+.article-meta { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; color: var(--muted); }
+.article-read { margin-left: auto; color: var(--signal); font-weight: 700; }
+
 /* A post from X, drawn like an embedded post, with its video inline */
 .post { margin: clamp(36px, 6vh, 56px) 0 0; max-width: 540px; }
 .post-card {
@@ -520,6 +537,7 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
   .carousel { margin-left: calc(-1 * var(--gutter)); }
   .carousel .mcard { width: 72vw; }
   .launch-hint { display: none; }
+  .article { grid-template-columns: 1fr; }
   .moments-stage { height: clamp(340px, 58vh, 500px); }
   .afk-grid { grid-template-columns: 1fr; }
   .moments .afk-intro { font-size: 17px; }

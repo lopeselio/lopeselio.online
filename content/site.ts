@@ -44,6 +44,18 @@ export type Post = {
   credit: string;
 };
 
+/** An article I wrote, shown as a card linking to it. */
+export type Article = {
+  title: string;
+  url: string;
+  /** X handle it was published from. */
+  author: string;
+  /** ISO date it was published. */
+  date: string;
+  cover: string;
+  blurb: string;
+};
+
 export type Chapter = {
   /** Used in the URL (#launch) and by the split timer. */
   id: string;
@@ -66,6 +78,8 @@ export type Chapter = {
   statsLayout?: "grid" | "carousel";
   /** A post from X shown under the story. */
   post?: Post;
+  /** Articles I wrote about this part of the story. */
+  articles?: Article[];
   /** Speedrun "gold split": a part of the run with a 1st-place finish. */
   gold?: boolean;
   /** Renders the chapter as the dark, full-width climax. Use for one chapter only. */
