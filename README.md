@@ -5,6 +5,8 @@ Personal site for Elio Jordan Lopes. It tells the story as a speedrun: each part
 
 - **Stack:** Next.js (static export), React, [Motion](https://motion.dev) for scroll effects,
   [three.js](https://threejs.org) for the 3D scenes, plain CSS.
+- **Analytics:** [Vercel Web Analytics](https://vercel.com/docs/analytics) (`<Analytics />` in `app/layout.tsx`).
+  It only reports from the deployed site, not from `npm run dev`.
 - **3D:** `components/Journey3D.tsx` draws the course behind the page: one checkpoint ring per chapter,
   built from `chapters`, so a new chapter gets its own ring automatically. Scrolling flies the camera down
   the track, the pointer scatters the blocks, and clicking a ring jumps to its chapter.
