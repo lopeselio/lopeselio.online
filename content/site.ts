@@ -517,18 +517,6 @@ export const work: Work[] = [
     ],
   },
   {
-    name: "Aptos Raiders",
-    what: "Roguelike dungeon shooter for mobile on Aptos; 1st place, games track, Aptos Hack Singapore",
-    year: "2023",
-    links: [],
-  },
-  {
-    name: "AlgoRaiders",
-    what: "The same dungeon shooter on Algorand, built at Algorand Build-a-Bull",
-    year: "2023",
-    links: [],
-  },
-  {
     name: "LightningCELO",
     what: "Pay-by-the-second salary and subscription streams on Celo",
     year: "2022",
