@@ -40,6 +40,8 @@ You should rarely need to touch anything outside `content/site.ts`.
 | The CV people download | replace `public/Elio_Jordan_Lopes_CV.pdf` (keep the name) |
 | Photos and clips | add files to `public/media/` and list them in a chapter's `media` (the first is shown largest on phones) |
 | The photo ring before Contact | `moments` |
+| Timer and checkpoints for the sections after the story | `extraSplits` |
+| The line above the name | `profile.tagline` |
 | A chapter's photos as a moving, draggable strip | set `mediaLayout: "carousel"` on that chapter |
 | Your photo in the header | `profile.portrait` |
 
