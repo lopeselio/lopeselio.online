@@ -449,7 +449,9 @@ h1, h2, h3 { margin: 0; font-weight: 800; }
     border-right: 0; border-bottom: 1px solid var(--line);
   }
   .hud-label, .hud-legend, .hud-track { display: none; }
-  .hud-clock { font-size: 20px; min-width: 6.5ch; }
+  .hud { background: rgba(7, 8, 11, .97); }
+  .hud-clock { font-size: 20px; min-width: 6.2em; flex: none; }
+  .hud-splits { flex: 1; padding-left: 0; }
   .splits { display: flex; gap: 6px; flex: 1; }
   .splits li { flex: 1; }
   .splits a { display: block; height: 4px; padding: 0; border-radius: 2px; background: currentColor; opacity: .2; overflow: hidden; text-indent: -999px; }
