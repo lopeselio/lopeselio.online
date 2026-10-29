@@ -169,6 +169,10 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
 .hud-legend { margin-top: auto; display: flex; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); }
 .hud-legend i { width: 7px; height: 7px; background: var(--signal); transform: rotate(45deg); }
 
+/* Wide screens: content keeps a readable width; the course fills the space beside it */
+.chapter-head, .chapter-body, .stats, .media, .post, .section > :not(.moments-stage) { max-width: 1280px; }
+.hero { max-width: 1760px; }
+
 /* Chapter */
 .chapter {
   position: relative;
