@@ -2,6 +2,7 @@ import type { Chapter } from "@/content/site";
 import ChapterMedia from "./ChapterMedia";
 import Counter from "./Counter";
 import LaunchField from "./LaunchField";
+import Mentions from "./Mentions";
 import PostCard from "./PostCard";
 import WidenTitle from "./WidenTitle";
 
@@ -22,7 +23,9 @@ export default function ChapterSection({ chapter, index }: { chapter: Chapter; i
       <div className="chapter-body">
         <div className="story">
           {story.map((paragraph) => (
-            <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+            <p key={paragraph.slice(0, 32)}>
+              <Mentions text={paragraph} />
+            </p>
           ))}
         </div>
 

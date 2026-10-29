@@ -1,6 +1,7 @@
 import { chapters, closing, community, moments, profile, work } from "@/content/site";
 import ChapterSection from "@/components/ChapterSection";
 import Journey3D from "@/components/Journey3D";
+import Mentions from "@/components/Mentions";
 import Moments3D from "@/components/Moments3D";
 import Run from "@/components/Run";
 
@@ -39,9 +40,13 @@ export default function Home() {
             <p className="hero-intro">{profile.intro}</p>
             <dl className="facts">
               <dt>Now</dt>
-              <dd>Building Terrace, on my own</dd>
+              <dd>
+                <Mentions text="Building Terrace, on my own" />
+              </dd>
               <dt>Before</dt>
-              <dd>Co-founder, CEO and CTO of IntoTheVerse</dd>
+              <dd>
+                <Mentions text="Co-founder, CEO and CTO of IntoTheVerse" />
+              </dd>
               <dt>Based in</dt>
               <dd>{profile.location}</dd>
             </dl>

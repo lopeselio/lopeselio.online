@@ -334,6 +334,19 @@ h1, h2, h3 { margin: 0; font-weight: 800; }
 .work li:hover { background: rgba(255, 122, 47, .06); }
 .work .y { color: var(--signal); font-variant-numeric: tabular-nums; font-size: 15px; }
 .work .nm { font-weight: 700; font-size: 19px; font-variation-settings: "wdth" 110; }
+
+/* A project mention: its logo and name, linking to its X account */
+.brand {
+  font-weight: 600; text-decoration: underline; text-decoration-color: var(--signal);
+  text-decoration-thickness: 2px; text-underline-offset: 3px; white-space: nowrap;
+}
+.brand img {
+  display: inline-block; width: 1.2em; height: 1.2em; border-radius: 25%;
+  vertical-align: -0.22em; margin-right: .35em;
+  /* a light outline so dark logos still read on the dark page */
+  box-shadow: 0 0 0 1px rgba(243, 239, 232, .45);
+}
+.brand:hover { color: var(--signal); }
 .work .wt { color: var(--muted); }
 .work .lk { display: flex; gap: 16px; font-size: 15px; justify-content: flex-end; }
 
