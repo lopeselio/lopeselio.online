@@ -51,11 +51,14 @@ export default function Home() {
 
       <main>
         <section className="hero" aria-labelledby="name">
-          <h1 id="name" className="hero-name">
-            <span>{first}</span>
-            <span>{middle}</span>
-            <span>{last}</span>
-          </h1>
+          <div className="hero-title">
+            <p className="hero-kicker">{profile.tagline}</p>
+            <h1 id="name" className="hero-name">
+              <span>{first}</span>
+              <span>{middle}</span>
+              <span>{last}</span>
+            </h1>
+          </div>
           <div className="hero-side">
             <img className="hero-portrait" src={profile.portrait.src} alt={profile.portrait.alt} />
             <p className="hero-intro">{profile.intro}</p>
@@ -96,7 +99,7 @@ export default function Home() {
         <p className="start">
           <a href={`#${chapters[0].id}`}>
             <span className="tick" aria-hidden="true" />
-            Start the run: {splits.length} splits, {chapters[0].when} to now
+            Start the ride: {splits.length} checkpoints, {chapters[0].when} to now
           </a>
           <span className="start-hint">Move to look around. Click a checkpoint ring to jump to its chapter.</span>
         </p>

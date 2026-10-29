@@ -80,6 +80,12 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
   animation: widen 1.6s cubic-bezier(.2, .7, .1, 1) .15s both;
 }
 .hero-name span { display: block; }
+.hero-kicker {
+  display: inline-flex; align-items: center; gap: 12px; margin-bottom: clamp(16px, 2.4vh, 28px);
+  font-family: var(--display); font-weight: 700; font-size: clamp(17px, 1.7vw, 24px); color: var(--signal);
+  animation: widen 1.6s cubic-bezier(.2, .7, .1, 1) both;
+}
+.hero-kicker::before { content: ""; width: 34px; height: 2px; background: var(--signal); }
 .hero-name span:last-child { color: var(--signal); }
 @keyframes widen {
   from { font-variation-settings: "wdth" 75; opacity: .2; }
