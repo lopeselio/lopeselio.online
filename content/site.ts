@@ -310,7 +310,6 @@ export const chapters: Chapter[] = [
         caption: "Our booth at Solana Summit, Da Nang, 2025",
       },
     ],
-    links: [{ label: "Revenue dashboard", href: "https://cryptara-revenue-dashboard.vercel.app/" }],
   },
   {
     id: "mobile",
@@ -474,7 +473,6 @@ export const work: Work[] = [
     what: "Fully on-chain survival shooter on Solana and Eclipse",
     year: "2025",
     links: [
-      { label: "Revenue dashboard", href: "https://cryptara-revenue-dashboard.vercel.app/" },
       { label: "X", href: "https://x.com/CryptaraConq" },
     ],
   },
