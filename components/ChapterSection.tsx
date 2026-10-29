@@ -55,11 +55,7 @@ export default function ChapterSection({ chapter, index }: { chapter: Chapter; i
             <div className="stat" key={stat.label}>
               <dt className="stat-l">{stat.label}</dt>
               <dd className="stat-n">
-                {feature ? (
-                  <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
-                ) : (
-                  `${stat.prefix ?? ""}${stat.value.toLocaleString("en-US")}${stat.suffix ?? ""}`
-                )}
+                <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
               </dd>
             </div>
           ))}
