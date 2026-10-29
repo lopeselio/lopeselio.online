@@ -70,6 +70,15 @@ export type Chapter = {
   feature?: boolean;
 };
 
+/** My projects' X accounts. Mentions of these names in the story and project list link here, with the logo. */
+export type Brand = { name: string; x: string; logo: string };
+export const brands: Brand[] = [
+  { name: "Cryptara Conquest", x: "https://x.com/CryptaraConq", logo: "/media/logo-cryptara.jpg" },
+  { name: "IntoTheVerse", x: "https://x.com/IntoTheVerse_", logo: "/media/logo-intotheverse.jpg" },
+  { name: "Sushi Nads", x: "https://x.com/sushinads", logo: "/media/logo-sushinads.jpg" },
+  { name: "Terrace", x: "https://x.com/terrace_social", logo: "/media/logo-terrace.jpg" },
+];
+
 export const profile = {
   name: "Elio Jordan Lopes",
   role: "Software engineer and game studio co-founder",
