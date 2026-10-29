@@ -165,6 +165,11 @@ function MediaCard({ item, copy = false }: { item: Media; copy?: boolean }) {
     ref.current?.style.setProperty("--rx", "0deg");
     ref.current?.style.setProperty("--ry", "0deg");
   }
+  // Portrait photos are shown whole over a blurred copy of themselves, instead of being cropped.
+  function checkShape(e: React.SyntheticEvent<HTMLImageElement>) {
+    const img = e.currentTarget;
+    if (img.naturalHeight > img.naturalWidth * 1.05) ref.current?.setAttribute("data-portrait", "true");
+  }
 
   return (
     <figure
@@ -189,7 +194,10 @@ function MediaCard({ item, copy = false }: { item: Media; copy?: boolean }) {
             aria-label={item.alt}
           />
         ) : (
-          <img src={item.src} alt={copy ? "" : item.alt} loading="lazy" draggable={false} />
+          <>
+            <img className="mcard-backdrop" src={item.src} alt="" aria-hidden="true" loading="lazy" draggable={false} />
+            <img className="mcard-img" src={item.src} alt={copy ? "" : item.alt} loading="lazy" draggable={false} onLoad={checkShape} />
+          </>
         )}
       </div>
       {item.caption ? <figcaption>{item.caption}</figcaption> : null}
