@@ -512,20 +512,26 @@ export const work: Work[] = [
     name: "Pocket Tune",
     what: "Fine-tune a small AI model on your own notes, on your phone or laptop, with Tether QVAC",
     year: "2026",
-    links: [{ label: "GitHub", href: "https://github.com/lopeselio/qvac-pocket-tune" }],
+    links: [
+      { label: "Project page", href: "https://pocket-tune.qvac.lopeselio.online/" },
+      { label: "GitHub", href: "https://github.com/lopeselio/qvac-pocket-tune" },
+    ],
   },
   {
     name: "Babel Room",
     what: "Live captions across languages with no server, transcribed and translated on each phone",
     year: "2026",
-    links: [{ label: "GitHub", href: "https://github.com/lopeselio/qvac-babel-room" }],
+    links: [
+      { label: "Project page", href: "https://babel-room.qvac.lopeselio.online/" },
+      { label: "GitHub", href: "https://github.com/lopeselio/qvac-babel-room" },
+    ],
   },
   {
     name: "Wallet Guardian",
     what: "Explains a transaction before you sign it and stops wallet-drain scams",
     year: "2026",
     links: [
-      { label: "Demo", href: "https://lopeselio.github.io/qvac-wallet-guardian/" },
+      { label: "Demo", href: "https://wallet-guardian.qvac.lopeselio.online/" },
       { label: "npm", href: "https://www.npmjs.com/package/qvac-wallet-guardian" },
       { label: "GitHub", href: "https://github.com/lopeselio/qvac-wallet-guardian" },
     ],
@@ -535,7 +541,7 @@ export const work: Work[] = [
     what: "Finds why a CI run failed and tells real failures from flaky ones",
     year: "2026",
     links: [
-      { label: "Try it", href: "https://lopeselio.github.io/qvac-ci-doctor/" },
+      { label: "Try it", href: "https://ci-doctor.qvac.lopeselio.online/" },
       { label: "GitHub", href: "https://github.com/lopeselio/qvac-ci-doctor" },
     ],
   },
@@ -543,7 +549,10 @@ export const work: Work[] = [
     name: "qvac-seed",
     what: "Share local AI models peer-to-peer as pear:// links, checked on every download",
     year: "2026",
-    links: [{ label: "GitHub", href: "https://github.com/lopeselio/qvac-seed" }],
+    links: [
+      { label: "Project page", href: "https://seed.qvac.lopeselio.online/" },
+      { label: "GitHub", href: "https://github.com/lopeselio/qvac-seed" },
+    ],
   },
   {
     name: "Terrace Social",
