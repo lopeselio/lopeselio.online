@@ -440,7 +440,7 @@ export const chapters: Chapter[] = [
       "Terrace Social is a social app for football fans and their friends. You post a take in a match chat, and it becomes a market your mates can back or fade, alongside 1v1 challenges, parlays and private leagues. I'm building the whole thing myself, from the Solidity contracts and Chainlink settlement to the app.",
       "I also published terrace-mcp, an open-source server that lets two people's AI assistants bet each other on a match, straight from the terminal. It's another way to explore what happens when familiar conversations become something software can act on.",
       "After years of building games with a team, working across chains and dealing with everything from game design to backend infrastructure, I'm putting that experience into a product of my own. There's still plenty to build, and I'm enjoying having to work through every layer of it.",
-      "This is the current split, not the finish line. The projects below are the rest of the run: the things I've shipped, the tools I've worked on, and the work that led me here.",
+      "Alongside Terrace, I entered the NEAR Hackathon in November 2026. That's the next split.",
     ],
     stats: [
       { value: 340, suffix: "+", label: "markets created in the first 2 weeks" },
@@ -495,6 +495,92 @@ export const chapters: Chapter[] = [
       { label: "terrace-mcp on GitHub", href: "https://github.com/lopeselio/terrace-mcp" },
     ],
   },
+  {
+    id: "near",
+    split: "NEAR Hackathon",
+    when: "Nov 2026",
+    title: "Nine games and a marketing protocol for one hackathon",
+    story: [
+      "In November 2026, I entered the NEAR Hackathon with two submissions. The first was NEAR Arcade: nine browser games, each with its own contract on NEAR testnet, behind one arcade page that reads every high score live from the chain.",
+      "The games share one idea. On-chain games usually show players the chain, with wallet pop-ups, gas and seed phrases, and hide the parts players would want proven. I flipped that. You start as a guest with no wallet. Hidden moves, secret rolls and boards are committed on-chain before play and opened afterwards, so anyone can check a finished match. The AI rivals hold their own NEAR accounts, with keys that limit what they can spend.",
+      "They range from Sushi Sabotage, a kitchen race with secret sabotage, to Fogwater, a sea battle where every hit or miss is proven against your sealed fleet, and Parkwright, a theme-park builder whose guests are AI agents with wallets.",
+      "The second was Signalfire. A startup launches an attention token, and 2% of every trade goes into a marketing treasury the founders can't pocket. Creators bid in sealed auctions to run campaigns, token holders vote on which bid to fund, and the creator is paid only as new buyers arrive. It runs on NEAR testnet with no real money, and the token is not equity.",
+      "This is the current split, not the finish line. The projects below are the rest of the run: the things I've shipped, the tools I've worked on, and the work that led me here.",
+    ],
+    facts: [
+      "9 games, each with its own NEAR testnet contract",
+      "57 AI agent accounts, each limited to capped, single-contract keys",
+      "Every finished match can be re-checked against its contract",
+      "Signalfire: live on NEAR testnet, no real money",
+    ],
+    mediaLayout: "carousel",
+    media: [
+      {
+        kind: "video",
+        src: "/media/near-arcade-trailer.mp4",
+        poster: "/media/near-arcade-trailer-poster.jpg",
+        alt: "The NEAR Arcade trailer: a neon arcade sign, then clips of the nine games and the arcade page reading scores from NEAR testnet.",
+        caption: "NEAR Arcade: nine games, one arcade",
+        sound: true,
+      },
+      {
+        kind: "video",
+        src: "/media/signalfire-hype.mp4",
+        poster: "/media/signalfire-hype-poster.jpg",
+        alt: "The Signalfire video: how trading fees fill a marketing fund, creators bid privately, holders vote, and creators are paid per new buyer.",
+        caption: "Signalfire: attention becomes a marketing budget",
+        sound: true,
+      },
+      {
+        kind: "photo",
+        src: "/media/near-arcade-lineup.jpg",
+        alt: "The NEAR Arcade sign above a row of nine arcade cabinets, one for each game.",
+        caption: "Nine games, nine contracts",
+      },
+      {
+        kind: "photo",
+        src: "/media/near-arcade-fogwater.jpg",
+        alt: "Fogwater: two grids of ships at sea, with a miss marked on the player's waters.",
+        caption: "Fogwater: every hit or miss is proven",
+      },
+      {
+        kind: "photo",
+        src: "/media/near-arcade-parkwright.jpg",
+        alt: "Parkwright: a theme park with a roller coaster and crowds of guests, and a terminal asking an AI manager to build a coaster.",
+        caption: "Parkwright: a park whose guests are AI agents",
+      },
+      {
+        kind: "photo",
+        src: "/media/near-arcade-kraterra.jpg",
+        alt: "Kraterra: blocky green hills with two artillery pieces and a panel of munitions.",
+        caption: "Kraterra: voxel artillery duels",
+      },
+      {
+        kind: "photo",
+        src: "/media/near-arcade-tracks.jpg",
+        alt: "The arcade page with a row of hackathon track buttons; the NFTs track is selected and two cabinets are lit.",
+        caption: "The arcade lights up the games behind each hackathon track",
+      },
+      {
+        kind: "photo",
+        src: "/media/signalfire-fund.jpg",
+        alt: "A Signalfire screen: live trades on the left and a marketing fund of $47,790 in trading fees on the right.",
+        caption: "Signalfire: 2% of every trade goes to the marketing fund",
+      },
+      {
+        kind: "photo",
+        src: "/media/signalfire-paid-per-buyer.jpg",
+        alt: "A Signalfire screen: three payouts of $4,000 marked paid, and a receipt for 900 new buyers.",
+        caption: "Signalfire: creators are paid per new buyer",
+      },
+    ],
+    links: [
+      { label: "Play NEAR Arcade", href: "https://arcade.lopeselio.online" },
+      { label: "NEAR Arcade on GitHub", href: "https://github.com/lopeselio/near-arcade" },
+      { label: "Signalfire", href: "https://signalfire.lopeselio.online" },
+      { label: "Signalfire on GitHub", href: "https://github.com/lopeselio/signalfire" },
+    ],
+  },
 ];
 
 /** Sections after the story that also get a split in the timer and a checkpoint on the course. */
@@ -508,6 +594,24 @@ export type Work = { name: string; what: string; year: string; links: Link[] };
 
 /** The full index of projects, shown after the story. Newest first. */
 export const work: Work[] = [
+  {
+    name: "NEAR Arcade",
+    what: "Nine browser games on NEAR testnet with AI rivals that hold their own accounts, and matches anyone can re-check",
+    year: "2026",
+    links: [
+      { label: "Play", href: "https://arcade.lopeselio.online" },
+      { label: "GitHub", href: "https://github.com/lopeselio/near-arcade" },
+    ],
+  },
+  {
+    name: "Signalfire",
+    what: "Attention tokens on NEAR testnet: trading fees fund marketing campaigns that pay creators per new buyer",
+    year: "2026",
+    links: [
+      { label: "Try it", href: "https://signalfire.lopeselio.online" },
+      { label: "GitHub", href: "https://github.com/lopeselio/signalfire" },
+    ],
+  },
   {
     name: "Pocket Tune",
     what: "Fine-tune a small AI model on your own notes, on your phone or laptop, with Tether QVAC",
