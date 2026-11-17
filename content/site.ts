@@ -440,7 +440,12 @@ export const chapters: Chapter[] = [
       "Terrace Social is a social app for football fans and their friends. You post a take in a match chat, and it becomes a market your mates can back or fade, alongside 1v1 challenges, parlays and private leagues. I'm building the whole thing myself, from the Solidity contracts and Chainlink settlement to the app.",
       "I also published terrace-mcp, an open-source server that lets two people's AI assistants bet each other on a match, straight from the terminal. It's another way to explore what happens when familiar conversations become something software can act on.",
       "After years of building games with a team, working across chains and dealing with everything from game design to backend infrastructure, I'm putting that experience into a product of my own. There's still plenty to build, and I'm enjoying having to work through every layer of it.",
+      "In November 2026, Terrace Social received an honorable mention in the Social, Attention & Culture track at Metropolis, Monad's global hackathon, which drew 885 teams from 76 countries. Alchemy also named it one of the best projects using Alchemy.",
       "Alongside Terrace, I entered the NEAR Hackathon in November 2026. That's the next split.",
+    ],
+    facts: [
+      "Honorable mention, Social, Attention & Culture track, Monad Metropolis, 2026",
+      "One of Alchemy's best projects using Alchemy at Metropolis",
     ],
     stats: [
       { value: 340, suffix: "+", label: "markets created in the first 2 weeks" },
@@ -491,6 +496,7 @@ export const chapters: Chapter[] = [
     links: [
       { label: "Play Terrace", href: "https://play.terrace.social" },
       { label: "Terrace demo", href: "https://x.com/ElioCodes/status/2112883327279796585" },
+      { label: "Metropolis winners", href: "https://x.com/monad/status/2120551113610953111" },
       { label: "terrace-mcp on npm", href: "https://www.npmjs.com/package/terrace-mcp" },
       { label: "terrace-mcp on GitHub", href: "https://github.com/lopeselio/terrace-mcp" },
     ],
