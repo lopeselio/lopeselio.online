@@ -583,8 +583,10 @@ export const chapters: Chapter[] = [
     links: [
       { label: "Play NEAR Arcade", href: "https://arcade.lopeselio.online" },
       { label: "NEAR Arcade on GitHub", href: "https://github.com/lopeselio/near-arcade" },
+      { label: "NEAR Arcade thread on X", href: "https://x.com/ElioCodes/status/2121670480729952296" },
       { label: "Signalfire", href: "https://signalfire.lopeselio.online" },
       { label: "Signalfire on GitHub", href: "https://github.com/lopeselio/signalfire" },
+      { label: "Signalfire thread on X", href: "https://x.com/SignalFire_/status/2121686395798671723" },
     ],
   },
 ];
@@ -607,6 +609,7 @@ export const work: Work[] = [
     links: [
       { label: "Play", href: "https://arcade.lopeselio.online" },
       { label: "GitHub", href: "https://github.com/lopeselio/near-arcade" },
+      { label: "Thread", href: "https://x.com/ElioCodes/status/2121670480729952296" },
     ],
   },
   {
@@ -616,6 +619,7 @@ export const work: Work[] = [
     links: [
       { label: "Try it", href: "https://signalfire.lopeselio.online" },
       { label: "GitHub", href: "https://github.com/lopeselio/signalfire" },
+      { label: "Thread", href: "https://x.com/SignalFire_/status/2121686395798671723" },
     ],
   },
   {
