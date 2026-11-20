@@ -186,8 +186,6 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
 .splits li[data-state="current"] a { opacity: 1; font-weight: 700; }
 .splits .n { font-variant-numeric: tabular-nums; font-size: 13px; }
 .splits .gold { width: 8px; height: 8px; background: var(--signal); transform: rotate(45deg); align-self: center; }
-.hud-legend { margin-top: auto; display: flex; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); }
-.hud-legend i { width: 7px; height: 7px; background: var(--signal); transform: rotate(45deg); }
 
 /* Every desktop screen shows the same layout: the page scales by --z (set in app/layout.tsx), the 3D course stays full screen */
 @media (min-width: 901px) {
@@ -542,7 +540,7 @@ h1, h2, h3 { margin: 0; font-weight: 800; font-family: var(--display); }
     flex-direction: row; align-items: center; gap: 14px;
     border-right: 0; border-bottom: 1px solid var(--line);
   }
-  .hud-label, .hud-legend, .hud-track { display: none; }
+  .hud-label, .hud-track { display: none; }
   .hud { background: rgba(7, 8, 11, .97); }
   .hud-clock { font-size: 20px; min-width: 6.2em; flex: none; }
   .hud-splits { flex: 1; min-width: 72px; padding-left: 0; }

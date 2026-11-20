@@ -91,10 +91,6 @@ export default function Run({ splits, children }: { splits: Split[]; children: R
             ))}
           </ol>
         </div>
-        <p className="hud-legend">
-          <i aria-hidden="true" />
-          1st-place finish
-        </p>
       </nav>
       {children}
     </section>
